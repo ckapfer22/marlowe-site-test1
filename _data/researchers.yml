@@ -4,9 +4,9 @@
   school: School of Humanities & Sciences
   lab: NeuroAILab
   affiliations:
-    - Bio-X
-    - HAI
-    - Wu Tsai Neurosciences Institute
+    - Member, Bio-X
+    - Faculty Affiliate, HAI
+    - Member, Wu Tsai Neurosciences Institute
   project_title: "Counterfactual World Modeling: Training Brain-Scale Neural Networks"
   summary: >
     Training an 80-billion-parameter brain-inspired neural network to study how
@@ -28,8 +28,8 @@
   school: School of Medicine
   lab: Tolias Lab
   affiliations:
-    - Bio-X
-    - Wu Tsai Neurosciences Institute
+    - Member, Bio-X
+    - Member, Wu Tsai Neurosciences Institute
   project_title: "The Enigma Project: Building a Foundation Model of the Brain"
   summary: >
     Training large multimodal transformers on time-resolved neural recordings,
@@ -51,10 +51,10 @@
   school: School of Engineering
   lab: SNAP Group / Stanford AI Lab
   affiliations:
-    - Bio-X
-    - HAI
-    - Wu Tsai Neurosciences Institute
-    - Center for Research on Foundation Models
+    - Member, Bio-X
+    - Faculty Affiliate, HAI
+    - Member, Wu Tsai Neurosciences Institute
+    - Member, Center for Research on Foundation Models
   project_title: "AI Virtual Cell: Genomic Foundation Models at Frontier Scale"
   summary: >
     Building the molecular scale of the AI Virtual Cell — novel foundation models
@@ -75,8 +75,8 @@
   school: School of Medicine
   lab: Li Lab
   affiliations:
-    - Bio-X
-    - Stanford Cancer Institute
+    - Member, Bio-X
+    - Member, Stanford Cancer Institute
   project_title: "Multimodal AI Foundation Models for Cancer Biology and Personalized Oncology"
   summary: >
     Building multimodal foundation models integrating histopathology images, clinical
@@ -97,8 +97,8 @@
   school: School of Medicine
   lab: AIMI Center (Director)
   affiliations:
-    - HAI (Senior Fellow)
-    - Bio-X
+    - Senior Fellow, HAI
+    - Member, Bio-X
   project_title: "AI for Radiology: Large-Scale Medical Imaging Models"
   summary: >
     Developing AI systems that interpret medical images and clinical text to improve
@@ -119,9 +119,9 @@
   school: School of Engineering
   lab: Stanford Computational Imaging Lab
   affiliations:
-    - Bio-X
-    - Wu Tsai Neurosciences Institute
-    - Wu Tsai Human Performance Alliance
+    - Member, Bio-X
+    - Member, Wu Tsai Neurosciences Institute
+    - Member, Wu Tsai Human Performance Alliance
   project_title: "Video World Models for Real-Time Scene Synthesis and Autonomous Driving"
   summary: >
     Building scalable video world models that generate photorealistic novel views of
@@ -142,10 +142,10 @@
   school: School of Engineering
   lab: Laboratory of Evolutionary Design
   affiliations:
-    - Bio-X
-    - HAI
-    - Sarafan ChEM-H
-    - Arc Institute
+    - Member, Bio-X
+    - Affiliate, HAI
+    - Faculty Fellow, Sarafan ChEM-H
+    - Innovation Investigator, Arc Institute
   project_title: "Learning the Language of Biology: Protein and DNA Language Models"
   summary: >
     Training language models on DNA and protein sequences at multi-node scale —

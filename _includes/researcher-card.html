@@ -17,12 +17,14 @@
         <p class="card-school">{{ researcher.school }}</p>
       </div>
     </div>
-    {% if researcher.lab %}
-      <p class="card-lab">{{ researcher.lab }}</p>
-    {% endif %}
-    {% if researcher.affiliations.size > 0 %}
-      <p class="card-affiliations">{{ researcher.affiliations | join: " &middot; " }}</p>
-    {% endif %}
+    <ul class="card-affiliations">
+      {% if researcher.lab %}
+        <li class="affil-lab">{{ researcher.lab }}</li>
+      {% endif %}
+      {% for affil in researcher.affiliations %}
+        <li>{{ affil }}</li>
+      {% endfor %}
+    </ul>
     <h4 class="card-project">{{ researcher.project_title }}</h4>
     <p class="card-summary">{{ researcher.summary }}</p>
     <div class="card-tags">

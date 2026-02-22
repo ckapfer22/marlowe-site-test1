@@ -512,17 +512,34 @@ img { max-width: 100%; height: auto; }
   margin: 0;
 }
 
-.card-lab {
-  font-size: 0.82rem;
+.card-affiliations {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.75rem;
+  font-size: 0.78rem;
+  color: var(--stone);
+  line-height: 1.5;
+}
+.card-affiliations li {
+  padding-left: 0.85rem;
+  position: relative;
+}
+.card-affiliations li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--border);
+}
+.card-affiliations .affil-lab {
   font-weight: 600;
   color: var(--cardinal);
-  margin: 0 0 0.15rem;
 }
-.card-affiliations {
-  font-size: 0.75rem;
-  color: var(--stone);
-  margin: 0 0 0.75rem;
-  line-height: 1.4;
+.card-affiliations .affil-lab::before {
+  background: var(--cardinal);
 }
 
 .card-project {
