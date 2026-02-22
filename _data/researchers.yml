@@ -227,3 +227,36 @@
   sub_page: false
   photo: armeni.jpg
   profile_url: https://profiles.stanford.edu/iro-armeni
+
+- name: James Zou
+  title: Associate Professor of Biomedical Data Science and, by courtesy, of Computer Science and of Electrical Engineering
+  department: Department of Biomedical Data Science
+  school: School of Medicine
+  lab: Zou Group
+  lab_url: https://zou-group.github.io/
+  affiliations:
+    - role: Member
+      name: Bio-X
+      url: https://biox.stanford.edu/
+    - role: Faculty Affiliate
+      name: HAI
+      url: https://hai.stanford.edu/
+    - role: Member
+      name: Stanford Cancer Institute
+      url: https://cancer.stanford.edu/
+    - role: Member
+      name: Wu Tsai Neurosciences Institute
+      url: https://neuroscience.stanford.edu/
+  project_title: "AI Agents for Biomedical Discovery: Self-Improving LLMs with Scientific Tools"
+  summary: >
+    Developing algorithms that enable large language models to self-improve and
+    learn to use scientific tools like AlphaFold and biomedical databases to build
+    deeper expertise. Fine-tuning and evaluating LLMs (7B-70B parameters) for
+    high-impact applications in healthcare, biology, chemistry, and medicine.
+  domain: Biomedical AI / Generative Agents
+  nodes: 1
+  gpus: 4
+  hero_run: false
+  sub_page: false
+  photo: zou.jpg
+  profile_url: https://profiles.stanford.edu/james-zou
