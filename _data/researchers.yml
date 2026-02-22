@@ -2,6 +2,11 @@
   title: Associate Professor of Psychology and Computer Science
   department: Department of Psychology
   school: School of Humanities & Sciences
+  lab: NeuroAILab
+  affiliations:
+    - Bio-X
+    - HAI
+    - Wu Tsai Neurosciences Institute
   project_title: "Counterfactual World Modeling: Training Brain-Scale Neural Networks"
   summary: >
     Training an 80-billion-parameter brain-inspired neural network to study how
@@ -21,6 +26,10 @@
   title: Professor of Ophthalmology and of Electrical Engineering
   department: Department of Ophthalmology
   school: School of Medicine
+  lab: Tolias Lab
+  affiliations:
+    - Bio-X
+    - Wu Tsai Neurosciences Institute
   project_title: "The Enigma Project: Building a Foundation Model of the Brain"
   summary: >
     Training large multimodal transformers on time-resolved neural recordings,
@@ -40,6 +49,12 @@
   title: Professor of Computer Science
   department: Department of Computer Science
   school: School of Engineering
+  lab: SNAP Group / Stanford AI Lab
+  affiliations:
+    - Bio-X
+    - HAI
+    - Wu Tsai Neurosciences Institute
+    - Center for Research on Foundation Models
   project_title: "AI Virtual Cell: Genomic Foundation Models at Frontier Scale"
   summary: >
     Building the molecular scale of the AI Virtual Cell — novel foundation models
@@ -58,6 +73,10 @@
   title: Associate Professor of Radiation Oncology
   department: Department of Radiation Oncology
   school: School of Medicine
+  lab: Li Lab
+  affiliations:
+    - Bio-X
+    - Stanford Cancer Institute
   project_title: "Multimodal AI Foundation Models for Cancer Biology and Personalized Oncology"
   summary: >
     Building multimodal foundation models integrating histopathology images, clinical
@@ -76,6 +95,10 @@
   title: Professor of Radiology and of Biomedical Data Science
   department: Department of Radiology
   school: School of Medicine
+  lab: AIMI Center (Director)
+  affiliations:
+    - HAI (Senior Fellow)
+    - Bio-X
   project_title: "AI for Radiology: Large-Scale Medical Imaging Models"
   summary: >
     Developing AI systems that interpret medical images and clinical text to improve
@@ -94,6 +117,11 @@
   title: Associate Professor of Electrical Engineering
   department: Department of Electrical Engineering
   school: School of Engineering
+  lab: Stanford Computational Imaging Lab
+  affiliations:
+    - Bio-X
+    - Wu Tsai Neurosciences Institute
+    - Wu Tsai Human Performance Alliance
   project_title: "Video World Models for Real-Time Scene Synthesis and Autonomous Driving"
   summary: >
     Building scalable video world models that generate photorealistic novel views of
@@ -112,6 +140,12 @@
   title: Assistant Professor of Chemical Engineering
   department: Department of Chemical Engineering
   school: School of Engineering
+  lab: Laboratory of Evolutionary Design
+  affiliations:
+    - Bio-X
+    - HAI
+    - Sarafan ChEM-H
+    - Arc Institute
   project_title: "Learning the Language of Biology: Protein and DNA Language Models"
   summary: >
     Training language models on DNA and protein sequences at multi-node scale —
@@ -130,6 +164,8 @@
   title: Assistant Professor of Civil and Environmental Engineering
   department: Department of Civil and Environmental Engineering
   school: School of Engineering
+  lab: Gradient Spaces Lab
+  affiliations: []
   project_title: "4D Scene Understanding: AI for Dynamic Real-World Environments"
   summary: >
     Developing GPU-accelerated systems for understanding how physical spaces change
