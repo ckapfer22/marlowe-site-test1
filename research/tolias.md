@@ -8,7 +8,8 @@ pi_name: Andreas Tolias
 
 <div class="article-meta">
 <strong>PI:</strong> Andreas Tolias, Professor of Ophthalmology and of Electrical Engineering<br>
-<strong>Lab:</strong> Tolias Lab, Wu Tsai Neurosciences Institute<br>
+<strong>Lab:</strong> Tolias Lab<br>
+<strong>Affiliations:</strong> Bio-X · Wu Tsai Neurosciences Institute<br>
 <strong>Marlowe Allocation:</strong> 8 nodes (64 H100 GPUs) | Cycle 5
 </div>
 
