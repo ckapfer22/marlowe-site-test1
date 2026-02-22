@@ -1,0 +1,25 @@
+---
+layout: default
+title: Updates
+---
+
+<div class="container">
+  <div class="page-header">
+    <h1>Updates</h1>
+    <p class="lead">News, milestones, and system updates from the Marlowe team.</p>
+  </div>
+
+  <ul class="updates-list">
+    {% assign sorted_updates = site.updates | sort: 'date' | reverse %}
+    {% for update in sorted_updates %}
+    <li class="update-item">
+      <div class="update-date-col">{{ update.date | date: "%b %-d, %Y" }}</div>
+      <div class="update-content">
+        <span class="update-type-badge type-{{ update.type }}">{{ update.type | replace: '-', ' ' }}</span>
+        <h3><a href="{{ update.url | relative_url }}">{{ update.title }}</a></h3>
+        <p class="update-excerpt">{{ update.content | strip_html | truncatewords: 40 }}</p>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</div>

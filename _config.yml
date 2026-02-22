@@ -1,0 +1,34 @@
+title: Marlowe
+description: "Stanford's 248-GPU H100 Supercomputer"
+baseurl: "/marlowe-site-test1"
+url: "https://ckapfer22.github.io"
+
+# Build
+markdown: kramdown
+permalink: pretty
+
+# Collections
+collections:
+  updates:
+    output: true
+    permalink: /updates/:title/
+    sort_by: date
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: updates
+    values:
+      layout: default
+
+# Exclude
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - foo

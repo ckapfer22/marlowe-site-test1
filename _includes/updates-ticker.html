@@ -1,0 +1,48 @@
+<section class="updates-ticker-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Latest Updates</h2>
+      <a href="{{ '/updates/' | relative_url }}" class="see-all">View all &rarr;</a>
+    </div>
+  </div>
+  <div class="ticker-viewport">
+    <div class="ticker-track" id="ticker-track">
+      {% assign sorted_updates = site.updates | sort: 'date' | reverse %}
+      {% for update in sorted_updates %}
+      <a href="{{ update.url | relative_url }}" class="ticker-card">
+        <span class="ticker-type type-{{ update.type }}">{{ update.type | replace: '-', ' ' }}</span>
+        <span class="ticker-date">{{ update.date | date: "%b %-d" }}</span>
+        <span class="ticker-title">{{ update.title }}</span>
+      </a>
+      {% endfor %}
+      {% for update in sorted_updates %}
+      <a href="{{ update.url | relative_url }}" class="ticker-card" aria-hidden="true">
+        <span class="ticker-type type-{{ update.type }}">{{ update.type | replace: '-', ' ' }}</span>
+        <span class="ticker-date">{{ update.date | date: "%b %-d" }}</span>
+        <span class="ticker-title">{{ update.title }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  var track = document.getElementById('ticker-track');
+  if (!track) return;
+  var paused = false;
+  track.addEventListener('mouseenter', function() { paused = true; });
+  track.addEventListener('mouseleave', function() { paused = false; });
+  var pos = 0;
+  var speed = 0.5;
+  function animate() {
+    if (!paused) {
+      pos -= speed;
+      if (Math.abs(pos) >= track.scrollWidth / 2) pos = 0;
+      track.style.transform = 'translateX(' + pos + 'px)';
+    }
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+})();
+</script>

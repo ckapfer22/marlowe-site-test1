@@ -1,0 +1,35 @@
+<div class="researcher-card">
+  <div class="card-accent"></div>
+  <div class="card-body">
+    <div class="card-header">
+      <div class="card-avatar">
+        <span>{{ researcher.name | split: ' ' | first | slice: 0 }}{{ researcher.name | split: ' ' | last | slice: 0 }}</span>
+      </div>
+      <div class="card-identity">
+        <h3 class="card-name">
+          {% if researcher.sub_page %}
+            <a href="{{ researcher.sub_page_url | relative_url }}">{{ researcher.name }}</a>
+          {% else %}
+            <a href="{{ researcher.profile_url }}">{{ researcher.name }}</a>
+          {% endif %}
+        </h3>
+        <p class="card-title">{{ researcher.title }}</p>
+        <p class="card-school">{{ researcher.school }}</p>
+      </div>
+    </div>
+    <h4 class="card-project">{{ researcher.project_title }}</h4>
+    <p class="card-summary">{{ researcher.summary }}</p>
+    <div class="card-tags">
+      <span class="tag tag-domain">{{ researcher.domain }}</span>
+      {% if researcher.gpus %}
+        <span class="tag tag-gpu">{{ researcher.gpus }} GPUs</span>
+      {% endif %}
+      {% if researcher.hero_run %}
+        <span class="tag tag-hero">Hero Run</span>
+      {% endif %}
+    </div>
+    {% if researcher.sub_page %}
+      <a href="{{ researcher.sub_page_url | relative_url }}" class="card-link">Read full story &rarr;</a>
+    {% endif %}
+  </div>
+</div>

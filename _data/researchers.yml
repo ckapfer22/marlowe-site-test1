@@ -1,0 +1,145 @@
+- name: Dan Yamins
+  title: Associate Professor of Psychology and Computer Science
+  department: Department of Psychology
+  school: School of Humanities & Sciences
+  project_title: "Counterfactual World Modeling: Training Brain-Scale Neural Networks"
+  summary: >
+    Training an 80-billion-parameter brain-inspired neural network to study how
+    biological neural circuits give rise to cognitive function. The model learns
+    to predict how the world changes in response to actions — a core building
+    block of biological intelligence.
+  domain: Computational Neuroscience / AI
+  nodes: 24
+  gpus: 192
+  hero_run: true
+  sub_page: true
+  sub_page_url: /research/yamins/
+  photo: yamins.jpg
+  profile_url: https://profiles.stanford.edu/daniel-yamins
+
+- name: Andreas Tolias
+  title: Professor of Ophthalmology and of Electrical Engineering
+  department: Department of Ophthalmology
+  school: School of Medicine
+  project_title: "The Enigma Project: Building a Foundation Model of the Brain"
+  summary: >
+    Training large multimodal transformers on time-resolved neural recordings,
+    visual stimulation, and behavioral data to build a foundation model of the
+    primate brain — decoding how the brain processes and integrates information
+    across sensory modalities.
+  domain: Neuroscience / AI
+  nodes: 8
+  gpus: 64
+  hero_run: false
+  sub_page: true
+  sub_page_url: /research/tolias/
+  photo: tolias.jpg
+  profile_url: https://profiles.stanford.edu/andreas-tolias
+
+- name: Jure Leskovec
+  title: Professor of Computer Science
+  department: Department of Computer Science
+  school: School of Engineering
+  project_title: "AI Virtual Cell: Genomic Foundation Models at Frontier Scale"
+  summary: >
+    Building the molecular scale of the AI Virtual Cell — novel foundation models
+    for genomic sequences (DNA, RNA, proteins) scaling from 770M to 15B parameters.
+    The goal is open-source models comparable to ESM-3 and EVO-2, trained at
+    frontier LLM scale.
+  domain: Computational Biology / Genomics
+  nodes: 8
+  gpus: 64
+  hero_run: false
+  sub_page: false
+  photo: leskovec.jpg
+  profile_url: https://profiles.stanford.edu/jure-leskovec
+
+- name: Ruijiang Li
+  title: Associate Professor of Radiation Oncology
+  department: Department of Radiation Oncology
+  school: School of Medicine
+  project_title: "Multimodal AI Foundation Models for Cancer Biology and Personalized Oncology"
+  summary: >
+    Building multimodal foundation models integrating histopathology images, clinical
+    notes, and spatial transcriptomics to transform cancer diagnosis and treatment.
+    Published in Nature (January 2025), with training on over 400 million medical
+    images and billions of text tokens.
+  domain: Medical AI / Oncology
+  nodes: 8
+  gpus: 64
+  hero_run: false
+  sub_page: false
+  photo: li.jpg
+  profile_url: https://profiles.stanford.edu/ruijiang-li
+
+- name: Curtis Langlotz
+  title: Professor of Radiology and of Biomedical Data Science
+  department: Department of Radiology
+  school: School of Medicine
+  project_title: "AI for Radiology: Large-Scale Medical Imaging Models"
+  summary: >
+    Developing AI systems that interpret medical images and clinical text to improve
+    diagnostic accuracy and clinical decision-making. Professor Langlotz directs the
+    Center for Artificial Intelligence in Medicine and Imaging (AIMI) at Stanford, one
+    of the leading medical AI research programs in the world.
+  domain: Medical AI / Radiology
+  nodes: null
+  gpus: null
+  hero_run: false
+  sub_page: false
+  photo: langlotz.jpg
+  profile_url: https://profiles.stanford.edu/curtis-langlotz
+
+- name: Gordon Wetzstein
+  title: Associate Professor of Electrical Engineering
+  department: Department of Electrical Engineering
+  school: School of Engineering
+  project_title: "Video World Models for Real-Time Scene Synthesis and Autonomous Driving"
+  summary: >
+    Building scalable video world models that generate photorealistic novel views of
+    dynamic scenes in real time — fine-tuning 1.3B-parameter video diffusion models
+    conditioned on sparse 3D geometry from LiDAR, with publications at SIGGRAPH 2024
+    and CVPR 2025.
+  domain: Computer Vision / Generative AI / Autonomous Systems
+  nodes: 2
+  gpus: 16
+  hero_run: false
+  sub_page: false
+  photo: wetzstein.jpg
+  profile_url: https://profiles.stanford.edu/gordon-wetzstein
+
+- name: Brian Hie
+  title: Assistant Professor of Chemical Engineering
+  department: Department of Chemical Engineering
+  school: School of Engineering
+  project_title: "Learning the Language of Biology: Protein and DNA Language Models"
+  summary: >
+    Training language models on DNA and protein sequences at multi-node scale —
+    successfully scaled to 128 H100 GPUs with 50% model FLOPS utilization.
+    Marlowe enables large-scale biological AI training that drives discovery in
+    protein engineering and genomics.
+  domain: Computational Biology / Protein Engineering
+  nodes: 16
+  gpus: 128
+  hero_run: false
+  sub_page: false
+  photo: hie.jpg
+  profile_url: https://profiles.stanford.edu/brian-hie
+
+- name: Iro Armeni
+  title: Assistant Professor of Civil and Environmental Engineering
+  department: Department of Civil and Environmental Engineering
+  school: School of Engineering
+  project_title: "4D Scene Understanding: AI for Dynamic Real-World Environments"
+  summary: >
+    Developing GPU-accelerated systems for understanding how physical spaces change
+    over time — from construction sites to indoor environments. Transformer architectures
+    for 4D instance segmentation and monocular video reconstruction require sustained
+    multi-GPU training exceeding 72 hours per run.
+  domain: Computer Vision / 3D Scene Understanding
+  nodes: 2
+  gpus: 16
+  hero_run: false
+  sub_page: false
+  photo: armeni.jpg
+  profile_url: https://profiles.stanford.edu/iro-armeni

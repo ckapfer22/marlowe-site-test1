@@ -1,0 +1,35 @@
+<header class="site-header">
+  <div class="header-top">
+    <div class="container">
+      <a href="https://www.stanford.edu" class="stanford-link">Stanford University</a>
+    </div>
+  </div>
+  <nav class="main-nav" aria-label="Main navigation">
+    <div class="container nav-container">
+      <a href="{{ '/' | relative_url }}" class="nav-brand">
+        <span class="brand-mark">M</span>
+        <span class="brand-text">Marlowe</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Overview</a></li>
+        <li><a href="{{ '/research/' | relative_url }}" {% if page.url contains 'research' %}class="active"{% endif %}>Research Focus</a></li>
+        <li><a href="{{ '/updates/' | relative_url }}" {% if page.url contains 'updates' %}class="active"{% endif %}>Updates</a></li>
+        <li><a href="{{ '/documentation/' | relative_url }}" {% if page.url contains 'documentation' %}class="active"{% endif %}>Documentation</a></li>
+        <li><a href="{{ '/dashboard/' | relative_url }}" {% if page.url contains 'dashboard' %}class="active"{% endif %}>Dashboard</a></li>
+        <li><a href="https://datascience.stanford.edu/marlowe/marlowe-access" class="nav-cta">Apply for Access</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<script>
+document.querySelector('.nav-toggle').addEventListener('click', function() {
+  var nav = document.getElementById('nav-links');
+  var expanded = this.getAttribute('aria-expanded') === 'true';
+  this.setAttribute('aria-expanded', !expanded);
+  nav.classList.toggle('open');
+});
+</script>

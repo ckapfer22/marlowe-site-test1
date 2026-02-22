@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700;900&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+</head>
+<body>
+
+  {% include nav.html %}
+
+  <main id="main-content">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">Marlowe</div>
+          <p>Stanford's 248-GPU H100 supercomputer, operated by <a href="https://datascience.stanford.edu">Stanford Data Science</a>.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="https://datascience.stanford.edu/marlowe/marlowe-access">Apply for Access</a></li>
+            <li><a href="https://datascience.stanford.edu/marlowe/project-application-guide">Application Guide</a></li>
+            <li><a href="{{ '/documentation/' | relative_url }}">Documentation</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="{{ '/dashboard/' | relative_url }}">Utilization Dashboard</a></li>
+            <li><a href="https://datascience.stanford.edu/marlowe/recharge">Recharge Rates</a></li>
+            <li><a href="https://doi.org/10.5281/zenodo.14538206">Cite Marlowe</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; Stanford University. Stanford, California 94305.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
