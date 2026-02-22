@@ -30,7 +30,7 @@ The hero run used internet-scale video data as training input — the same kind 
 
 This research simply cannot happen on conventional computing clusters. Single-node GPU jobs are orders of magnitude too small. Cloud computing at this scale would cost tens of thousands of dollars per run. Marlowe provides the combination of massive GPU count, high-bandwidth interconnect (InfiniBand), and dedicated scheduling that makes capability-scale neuroscience training possible at a university.
 
-At $0.025 per GPU-hour, Yamins' team can pursue ambitious experiments that would be financially prohibitive on commercial cloud platforms — enabling the kind of high-risk, high-reward research that universities are uniquely positioned to support.
+At $0.25 per GPU-hour, Yamins' team can pursue ambitious experiments that would be financially prohibitive on commercial cloud platforms — enabling the kind of high-risk, high-reward research that universities are uniquely positioned to support.
 
 ## What's Next
 
