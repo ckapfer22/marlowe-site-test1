@@ -1,0 +1,51 @@
+<div class="updates-feed">
+  <div class="feed-header">
+    <h3>Latest Updates</h3>
+    <a href="{{ '/updates/' | relative_url }}" class="see-all">View all &rarr;</a>
+  </div>
+  <div class="feed-viewport" id="feed-viewport">
+    <div class="feed-track" id="feed-track">
+      {% assign sorted_updates = site.updates | sort: 'date' | reverse %}
+      {% for update in sorted_updates %}
+      <a href="{{ update.url | relative_url }}" class="feed-item">
+        <div class="feed-item-header">
+          <span class="feed-type type-{{ update.type }}">{{ update.type | replace: '-', ' ' }}</span>
+          <span class="feed-date">{{ update.date | date: "%b %-d" }}</span>
+        </div>
+        <span class="feed-title">{{ update.title }}</span>
+      </a>
+      {% endfor %}
+      {% for update in sorted_updates %}
+      <a href="{{ update.url | relative_url }}" class="feed-item" aria-hidden="true">
+        <div class="feed-item-header">
+          <span class="feed-type type-{{ update.type }}">{{ update.type | replace: '-', ' ' }}</span>
+          <span class="feed-date">{{ update.date | date: "%b %-d" }}</span>
+        </div>
+        <span class="feed-title">{{ update.title }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var track = document.getElementById('feed-track');
+  var viewport = document.getElementById('feed-viewport');
+  if (!track || !viewport) return;
+  var paused = false;
+  viewport.addEventListener('mouseenter', function() { paused = true; });
+  viewport.addEventListener('mouseleave', function() { paused = false; });
+  var pos = 0;
+  var speed = 0.4;
+  function animate() {
+    if (!paused) {
+      pos -= speed;
+      if (Math.abs(pos) >= track.scrollHeight / 2) pos = 0;
+      track.style.transform = 'translateY(' + pos + 'px)';
+    }
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+})();
+</script>

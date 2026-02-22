@@ -20,25 +20,25 @@ title: Overview
 <!-- STATS BAR -->
 {% include stats-bar.html %}
 
-<!-- GPU INSTRUMENT -->
+<!-- GPU INSTRUMENT + UPDATES FEED -->
 <section class="section">
   <div class="container">
-    <div class="section-header">
-      <h2>GPU-Based Computational Instrument</h2>
-    </div>
     <div class="instrument-section">
-      <div class="instrument-text">
-        <p>Marlowe is a large, high-performance GPU-based computational instrument designed to support Stanford research requiring intensive parallel computing. Named for the tradition of naming scientific instruments, Marlowe provides researchers with the infrastructure to train foundation models, run large-scale simulations, and pursue computational work at scales previously available only to industry.</p>
-        <p>A team of Research Data Scientists partners directly with faculty to optimize code, scale training across multiple nodes, and maximize the scientific return from every GPU-hour allocated.</p>
-        <ul>
-          <li>Partner with faculty to design and execute GPU-accelerated research</li>
-          <li>Optimize training pipelines for multi-node scaling</li>
-          <li>Integrate open science practices into computational research</li>
-          <li>Provide technical consulting on model architecture and distributed training</li>
-        </ul>
-        <p><a href="https://news.stanford.edu/stories/2024/12/stanford-welcomes-first-gpu-based-supercomputer">Read the Stanford Report feature &rarr;</a></p>
-      </div>
       <div>
+        <div class="section-header">
+          <h2>GPU-Based Computational Instrument</h2>
+        </div>
+        <div class="instrument-text">
+          <p>Marlowe is a large, high-performance GPU-based computational instrument designed to support Stanford research requiring intensive parallel computing. Named for the tradition of naming scientific instruments, Marlowe provides researchers with the infrastructure to train foundation models, run large-scale simulations, and pursue computational work at scales previously available only to industry.</p>
+          <p>A team of Research Data Scientists partners directly with faculty to optimize code, scale training across multiple nodes, and maximize the scientific return from every GPU-hour allocated.</p>
+          <ul>
+            <li>Partner with faculty to design and execute GPU-accelerated research</li>
+            <li>Optimize training pipelines for multi-node scaling</li>
+            <li>Integrate open science practices into computational research</li>
+            <li>Provide technical consulting on model architecture and distributed training</li>
+          </ul>
+          <p><a href="https://news.stanford.edu/stories/2024/12/stanford-welcomes-first-gpu-based-supercomputer">Read the Stanford Report feature &rarr;</a></p>
+        </div>
         <table class="specs-table">
           <thead>
             <tr>
@@ -59,6 +59,9 @@ title: Overview
         <div class="callout" style="margin-top: 1.5rem;">
           <p><strong>Citing Marlowe:</strong> <a href="https://doi.org/10.5281/zenodo.14538206">Zenodo DOI 10.5281/zenodo.14538206</a></p>
         </div>
+      </div>
+      <div>
+        {% include updates-feed.html %}
       </div>
     </div>
   </div>
@@ -82,9 +85,6 @@ title: Overview
     </div>
   </div>
 </section>
-
-<!-- UPDATES TICKER -->
-{% include updates-ticker.html %}
 
 <!-- CTA BANNER -->
 <section class="section">
