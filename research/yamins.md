@@ -8,8 +8,8 @@ pi_name: Dan Yamins
 
 <div class="article-meta">
 <strong>PI:</strong> Dan Yamins, Associate Professor of Psychology and Computer Science<br>
-<strong>Lab:</strong> NeuroAILab<br>
-<strong>Member,</strong> Bio-X · <strong>Faculty Affiliate,</strong> HAI · <strong>Member,</strong> Wu Tsai Neurosciences Institute<br>
+<strong>Lab:</strong> <a href="https://neuroailab.stanford.edu/">NeuroAILab</a><br>
+Member, <a href="https://biox.stanford.edu/">Bio-X</a> · Faculty Affiliate, <a href="https://hai.stanford.edu/">HAI</a> · Member, <a href="https://neuroscience.stanford.edu/">Wu Tsai Neurosciences Institute</a><br>
 <strong>Marlowe Allocation:</strong> 24 nodes (192 H100 GPUs) | Hero run: February 7, 2026
 </div>
 

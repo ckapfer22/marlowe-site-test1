@@ -19,10 +19,10 @@
     </div>
     <ul class="card-affiliations">
       {% if researcher.lab %}
-        <li class="affil-lab">{{ researcher.lab }}</li>
+        <li class="affil-lab"><a href="{{ researcher.lab_url }}">{{ researcher.lab }}</a></li>
       {% endif %}
       {% for affil in researcher.affiliations %}
-        <li>{{ affil }}</li>
+        <li>{{ affil.role }}, <a href="{{ affil.url }}">{{ affil.name }}</a></li>
       {% endfor %}
     </ul>
     <h4 class="card-project">{{ researcher.project_title }}</h4>

@@ -534,9 +534,25 @@ img { max-width: 100%; height: auto; }
   border-radius: 50%;
   background: var(--border);
 }
+.card-affiliations a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--border);
+}
+.card-affiliations a:hover {
+  color: var(--cardinal);
+  border-bottom-color: var(--cardinal);
+}
 .card-affiliations .affil-lab {
   font-weight: 600;
   color: var(--cardinal);
+}
+.card-affiliations .affil-lab a {
+  color: var(--cardinal);
+  border-bottom-color: rgba(140,21,21,0.3);
+}
+.card-affiliations .affil-lab a:hover {
+  border-bottom-style: solid;
 }
 .card-affiliations .affil-lab::before {
   background: var(--cardinal);
