@@ -6,13 +6,7 @@
         <span>{{ researcher.name | split: ' ' | first | slice: 0 }}{{ researcher.name | split: ' ' | last | slice: 0 }}</span>
       </div>
       <div class="card-identity">
-        <h3 class="card-name">
-          {% if researcher.sub_page %}
-            <a href="{{ researcher.sub_page_url | relative_url }}">{{ researcher.name }}</a>
-          {% else %}
-            <a href="{{ researcher.profile_url }}">{{ researcher.name }}</a>
-          {% endif %}
-        </h3>
+        <h3 class="card-name">{{ researcher.name }}</h3>
         <p class="card-title">{{ researcher.title }}</p>
         <p class="card-school">{{ researcher.school }}</p>
       </div>
@@ -21,17 +15,14 @@
       {% if researcher.lab %}
         <li class="affil-lab"><a href="{{ researcher.lab_url }}">{{ researcher.lab }}</a></li>
       {% endif %}
-      {% for affil in researcher.affiliations %}
-        <li>{{ affil.role }}, <a href="{{ affil.url }}">{{ affil.name }}</a></li>
-      {% endfor %}
+      {% if researcher.profile_url %}
+        <li><a href="{{ researcher.profile_url }}">Stanford Profile</a></li>
+      {% endif %}
     </ul>
     <h4 class="card-project">{{ researcher.project_title }}</h4>
     <p class="card-summary">{{ researcher.summary }}</p>
     <div class="card-tags">
       <span class="tag tag-domain">{{ researcher.domain }}</span>
-      {% if researcher.hero_run %}
-        <span class="tag tag-hero">Hero Run</span>
-      {% endif %}
     </div>
     {% if researcher.sub_page %}
       <a href="{{ researcher.sub_page_url | relative_url }}" class="card-link">Read full story &rarr;</a>

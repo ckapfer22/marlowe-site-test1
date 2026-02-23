@@ -142,10 +142,10 @@
 }
 [data-theme="dark"] .card-affiliations .affil-lab,
 [data-theme="dark"] .card-affiliations .affil-lab a {
-  color: #e87a74;
+  color: #ccc;
 }
 [data-theme="dark"] .card-affiliations .affil-lab::before {
-  background: #e87a74;
+  background: #666;
 }
 [data-theme="dark"] .cta-banner {
   background: linear-gradient(135deg, #6b0f0f 0%, #4a0808 100%);
@@ -802,18 +802,22 @@ img { max-width: 100%; height: auto; }
   border-bottom-color: var(--cardinal);
 }
 .card-affiliations .affil-lab {
-  font-weight: 600;
-  color: var(--cardinal);
+  font-weight: 400;
+  color: inherit;
 }
 .card-affiliations .affil-lab a {
-  color: var(--cardinal);
-  border-bottom-color: rgba(140,21,21,0.3);
+  color: inherit;
+  border-bottom-color: var(--border);
 }
 .card-affiliations .affil-lab a:hover {
   border-bottom-style: solid;
 }
 .card-affiliations .affil-lab::before {
-  background: var(--cardinal);
+  background: var(--border);
+}
+.card-affiliations a::after {
+  content: ' \2197';
+  font-size: 0.75em;
 }
 
 .card-project {
