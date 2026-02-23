@@ -29,9 +29,6 @@
     <p class="card-summary">{{ researcher.summary }}</p>
     <div class="card-tags">
       <span class="tag tag-domain">{{ researcher.domain }}</span>
-      {% if researcher.gpus %}
-        <span class="tag tag-gpu">{{ researcher.gpus }} GPUs</span>
-      {% endif %}
       {% if researcher.hero_run %}
         <span class="tag tag-hero">Hero Run</span>
       {% endif %}
