@@ -4,6 +4,13 @@
       <a href="https://www.stanford.edu" class="stanford-link">Stanford University</a>
     </div>
   </div>
+  <div class="header-sds-bar">
+    <div class="container">
+      <a href="https://datascience.stanford.edu" aria-label="Stanford Data Science">
+        <img src="{{ '/assets/images/sds-logo.png' | relative_url }}" alt="Stanford Data Science" class="header-sds-logo">
+      </a>
+    </div>
+  </div>
   <nav class="main-nav" aria-label="Main navigation">
     <div class="container nav-container">
       <a href="{{ '/' | relative_url }}" class="nav-brand">
@@ -20,6 +27,7 @@
         <li><a href="{{ '/documentation/' | relative_url }}" {% if page.url contains 'documentation' %}class="active"{% endif %}>Documentation</a></li>
         <li><a href="{{ '/dashboard/' | relative_url }}" {% if page.url contains 'dashboard' %}class="active"{% endif %}>Dashboard</a></li>
         <li><a href="{{ '/access/' | relative_url }}" class="nav-cta">Apply for Access</a></li>
+        <li><button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">&#9790;</button></li>
       </ul>
     </div>
   </nav>
@@ -32,4 +40,25 @@ document.querySelector('.nav-toggle').addEventListener('click', function() {
   this.setAttribute('aria-expanded', !expanded);
   nav.classList.toggle('open');
 });
+
+(function() {
+  var btn = document.getElementById('theme-toggle');
+  function update() {
+    var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    btn.innerHTML = dark ? '&#9788;' : '&#9790;';
+    btn.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
+  }
+  update();
+  btn.addEventListener('click', function() {
+    var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (dark) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    }
+    update();
+  });
+})();
 </script>
