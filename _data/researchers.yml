@@ -260,3 +260,101 @@
   sub_page: false
   photo: zou.jpg
   profile_url: https://profiles.stanford.edu/james-zou
+
+- name: Tengyu Ma
+  title: Assistant Professor of Computer Science
+  department: Department of Computer Science
+  school: School of Engineering
+  lab: Ma Group
+  lab_url: https://ai.stanford.edu/~tengyuma/
+  affiliations:
+    - role: Member
+      name: Stanford AI Lab
+      url: https://ai.stanford.edu/
+  project_title: "LLM Reasoning at Scale: Reinforcement Learning for Theorem Proving and Parallel Chain-of-Thought"
+  summary: >
+    Using reinforcement learning to push the frontiers of LLM mathematical reasoning —
+    training self-play theorem provers that tackle open mathematical conjectures through
+    multi-agent collaboration, and teaching reasoning models to parallelize their long
+    chains of thought to dramatically reduce inference latency. Demonstrated 1.8x strong
+    scaling across 3 Marlowe nodes. Targeting ICML 2026.
+  domain: Machine Learning / Mathematical Reasoning
+  nodes: 3
+  gpus: 24
+  hero_run: false
+  sub_page: false
+  photo: ma.jpg
+  profile_url: https://profiles.stanford.edu/tengyu-ma
+
+- name: Thierry Tambe
+  title: Assistant Professor of Electrical Engineering and, by courtesy, of Computer Science
+  department: Department of Electrical Engineering
+  school: School of Engineering
+  lab: Tambe Lab
+  lab_url: https://profiles.stanford.edu/thierry-tambe
+  affiliations:
+    - role: Affiliate
+      name: SystemX Alliance
+      url: https://systemx.stanford.edu/
+  project_title: "Efficient AI Computing: From Model Compression to Edge-Deployable Video Generation"
+  summary: >
+    Developing algorithms, hardware architectures, and tools to make AI computing more
+    energy-efficient. Flagship projects include block-wise quantization of video diffusion
+    transformers for real-time edge video generation and 2D Gaussian splatting as compact
+    visual encoders. Blockdialect (ICML 2025) introduces fine-grained mixed-format
+    quantization for energy-efficient LLM inference. One of Marlowe's most active groups
+    with 41,000+ GPU-hours across five medium project allocations.
+  domain: Efficient AI / Hardware-Software Co-Design
+  nodes: 4
+  gpus: 32
+  hero_run: false
+  sub_page: false
+  photo: tambe.jpg
+  profile_url: https://profiles.stanford.edu/thierry-tambe
+
+- name: Jeffrey Glenn
+  title: Joseph D. Grant Professor and Professor of Microbiology and Immunology
+  department: Department of Microbiology and Immunology
+  school: School of Medicine
+  lab: Glenn Lab
+  lab_url: https://profiles.stanford.edu/jeffrey-glenn
+  affiliations:
+    - role: Member
+      name: Stanford Cancer Institute
+      url: https://cancer.stanford.edu/
+  project_title: "PiFold: Reinforcement Learning for High-Fidelity Molecular Structure Prediction"
+  summary: >
+    Training AlphaFold3-family models with reinforcement learning and physics-based
+    Rosetta scoring to produce physically realistic molecular structures for drug discovery.
+    On CASP16 targets, PiFold achieves Rosetta energy of -25.3 where competing models
+    exceed 4,000 — and improves binding affinity by 2-3 kcal/mol on protein-ligand
+    benchmarks. Targeting Nature Machine Intelligence and ICML 2026.
+  domain: Computational Biology / Drug Discovery
+  nodes: 8
+  gpus: 64
+  hero_run: false
+  sub_page: false
+  photo: glenn.jpg
+  profile_url: https://profiles.stanford.edu/jeffrey-glenn
+
+- name: Kay Giesecke
+  title: Professor of Management Science and Engineering
+  department: Department of Management Science and Engineering
+  school: School of Engineering
+  lab: Stanford Advanced FinTech Lab
+  lab_url: https://fintech.stanford.edu/
+  affiliations: []
+  project_title: "Time Machine: Time-Aware Pretrained LLMs for Finance and Economics"
+  summary: >
+    Pioneering time-aware LLMs that eliminate look-ahead bias — a fundamental flaw
+    making current models unreliable for finance, economics, and policy analysis. Training
+    from 7B to 14B parameter models on trillions of time-ordered tokens with novel
+    temporal architectures. Aims to create the "ImageNet of finance" with open-source
+    benchmarks and models. Marlowe's largest allocation request at 70,000 GPU-hours.
+  domain: AI for Finance / Time-Aware LLMs
+  nodes: 16
+  gpus: 128
+  hero_run: false
+  sub_page: false
+  photo: giesecke.jpg
+  profile_url: https://profiles.stanford.edu/kay-giesecke
