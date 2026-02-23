@@ -24,7 +24,7 @@ defaults:
       path: ""
       type: updates
     values:
-      layout: default
+      layout: update
 
 # Exclude
 exclude:

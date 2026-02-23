@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+<div class="container">
+  <article class="update-article">
+    <div class="update-meta">
+      <span class="feed-type type-{{ page.type }}">{{ page.type | replace: '-', ' ' }}</span>
+      <time>{{ page.date | date: "%B %-d, %Y" }}</time>
+    </div>
+    <h1>{{ page.title }}</h1>
+    {{ content }}
+    <p style="margin-top: 2rem;"><a href="{{ '/updates/' | relative_url }}">&larr; All Updates</a></p>
+  </article>
+</div>

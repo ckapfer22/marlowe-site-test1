@@ -37,6 +37,7 @@
 body {
   margin: 0;
   font-family: 'Source Sans 3', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 18px;
   color: var(--black);
   line-height: 1.6;
   background: var(--white);
@@ -92,18 +93,12 @@ img { max-width: 100%; height: auto; }
   color: var(--white) !important;
   text-decoration: none !important;
 }
-.brand-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  background: rgba(255,255,255,0.15);
-  border-radius: 8px;
-  font-family: 'Source Serif 4', Georgia, serif;
-  font-weight: 700;
-  font-size: 1.4rem;
-  color: var(--white);
+.brand-logo {
+  height: 46px;
+  width: auto;
+  background: var(--white);
+  border-radius: 6px;
+  padding: 3px;
 }
 .brand-text {
   font-family: 'Source Serif 4', Georgia, serif;
@@ -623,17 +618,20 @@ img { max-width: 100%; height: auto; }
 }
 .feed-header h3 {
   font-family: 'Source Serif 4', Georgia, serif;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 700;
   margin: 0;
 }
 .feed-header .see-all {
-  font-size: 0.8rem;
+  font-size: 0.88rem;
 }
 .feed-viewport {
   height: 420px;
   overflow: hidden;
   position: relative;
+}
+.feed-viewport:hover {
+  overflow-y: auto;
 }
 .feed-track {
   will-change: transform;
@@ -653,29 +651,32 @@ img { max-width: 100%; height: auto; }
 }
 .feed-item-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.3rem;
+  gap: 0.5rem;
+  margin-bottom: 0.15rem;
 }
 .feed-type {
   display: inline-block;
   padding: 0.1rem 0.45rem;
   border-radius: 3px;
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
 .feed-date {
-  font-size: 0.75rem;
+  font-size: 0.82rem;
   color: var(--stone);
   font-weight: 600;
 }
 .feed-title {
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   font-weight: 600;
   line-height: 1.4;
   display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .type-research-milestone { background: #EEF2FF; color: #4338CA; }
@@ -844,6 +845,30 @@ img { max-width: 100%; height: auto; }
   border-left: 4px solid var(--cardinal);
 }
 
+.update-article {
+  max-width: 780px;
+  padding: 2rem 0 3rem;
+}
+.update-article h1 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 2rem;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+.update-article p {
+  line-height: 1.7;
+  color: var(--cool-grey);
+  margin-bottom: 1.25rem;
+}
+.update-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  color: var(--stone);
+  font-size: 0.92rem;
+}
+
 /* ============================================================
    DOCUMENTATION & DASHBOARD STUB PAGES
    ============================================================ */
@@ -909,12 +934,22 @@ img { max-width: 100%; height: auto; }
   gap: 3rem;
   margin-bottom: 2rem;
 }
-.footer-logo {
-  font-family: 'Source Serif 4', Georgia, serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--white);
+.footer-logo-img {
+  height: 90px;
+  width: auto;
   margin-bottom: 0.75rem;
+}
+.footer-partners {
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding: 1.5rem 0;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.footer-partners img {
+  max-width: 900px;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
 }
 .site-footer a {
   color: rgba(255,255,255,0.8) !important;
