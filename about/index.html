@@ -1,0 +1,80 @@
+---
+layout: default
+title: About Marlowe
+---
+
+<div class="container">
+  <div class="page-header">
+    <h1>About Marlowe</h1>
+    <p class="lead">Stanford's first GPU-based supercomputer: 248 NVIDIA H100 GPUs powering frontier AI research across seven schools. Operated by Stanford Data Science.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <h2 style="font-family: 'Source Serif 4', Georgia, serif; font-size: 1.5rem; margin-top: 0;">GPU-Based Computational Instrument</h2>
+        <p>Named after Philip Marlowe, the film noir detective, Marlowe is Stanford's first large-scale GPU computational instrument, designed to give faculty the infrastructure to train foundation models, run large-scale simulations, and pursue computational work at scales previously available only to industry.</p>
+        <p>A team of Research Data Scientists partners directly with faculty to optimize code, scale training across multiple nodes, and maximize the scientific return from every GPU-hour allocated.</p>
+        <ul>
+          <li>Partner with faculty to design and execute GPU-accelerated research</li>
+          <li>Optimize training pipelines for multi-node scaling</li>
+          <li>Integrate open science practices into computational research</li>
+          <li>Provide technical consulting on model architecture and distributed training</li>
+        </ul>
+        <p><a href="https://news.stanford.edu/stories/2024/12/stanford-welcomes-first-gpu-based-supercomputer">Read the Stanford Report feature &rarr;</a></p>
+      </div>
+      <div class="about-specs">
+        <table class="specs-table">
+          <thead>
+            <tr>
+              <th colspan="2">Technical Specifications</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="spec-label">GPU</td><td class="spec-value">248x NVIDIA H100 80GB SXM5</td></tr>
+            <tr><td class="spec-label">Nodes</td><td class="spec-value">31 (8 GPUs per node)</td></tr>
+            <tr><td class="spec-label">CPU</td><td class="spec-value">2x Intel Xeon Platinum 8480+ (112 cores/node)</td></tr>
+            <tr><td class="spec-label">Memory</td><td class="spec-value">2 TB RAM per node</td></tr>
+            <tr><td class="spec-label">Interconnect</td><td class="spec-value">NVIDIA InfiniBand NDR (400 Gb/s)</td></tr>
+            <tr><td class="spec-label">Storage</td><td class="spec-value">2.5 PB parallel filesystem</td></tr>
+            <tr><td class="spec-label">GPU Interconnect</td><td class="spec-value">NVLink + NVSwitch (intra-node)</td></tr>
+            <tr><td class="spec-label">Data Classification</td><td class="spec-value">Low & Moderate Risk</td></tr>
+          </tbody>
+        </table>
+        <div style="margin-top: 1.5rem; text-align: center;">
+          <a href="{{ '/access/' | relative_url }}" class="btn btn-primary">Apply for Access</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIDEO -->
+    <div style="margin-top: 3rem;">
+      <div class="section-header">
+        <h2>Inside Marlowe</h2>
+      </div>
+      <div class="video-embed">
+        <div id="marlowe-video"></div>
+      </div>
+    </div>
+    <script>
+    var tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    document.head.appendChild(tag);
+    function onYouTubeIframeAPIReady() {
+      var player = new YT.Player('marlowe-video', {
+        videoId: '7bIJT7t0SS0',
+        playerVars: { mute: 1, rel: 0 },
+        events: {
+          onReady: function(e) {
+            e.target.mute();
+            setInterval(function() { player.mute(); }, 5);
+          }
+        }
+      });
+    }
+    </script>
+
+  </div>
+</section>

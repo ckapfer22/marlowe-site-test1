@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <title>{% if page.doc_title %}{{ page.doc_title }} | {% elsif page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700;900&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
         <div class="footer-links">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="https://datascience.stanford.edu/marlowe/marlowe-access">Apply for Access</a></li>
+            <li><a href="{{ '/access/' | relative_url }}">Apply for Access</a></li>
             <li><a href="https://datascience.stanford.edu/marlowe/project-application-guide">Application Guide</a></li>
             <li><a href="{{ '/documentation/' | relative_url }}">Documentation</a></li>
           </ul>

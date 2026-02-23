@@ -1,0 +1,378 @@
+---
+layout: default
+title: "Dashboard: Job Scale"
+---
+<div class="dashboard-content">
+<style>
+    .dashboard-content {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      margin: 0;
+      background: #f8f9fb;
+      color: #0f172a;
+      line-height: 1.6;
+    }
+    .site-root { min-height: 100vh; display: flex; flex-direction: column; }
+    .site-header { margin-bottom: 16px; }
+    .site-nav-row {
+      max-width: 1200px; margin: 0 auto; padding: 24px 24px 16px;
+      display: grid; grid-template-columns: max-content 1fr; align-items: center; column-gap: 20px;
+    }
+    .site-back-link { font-weight: 600; text-decoration: none; color: #0f172a; white-space: nowrap; justify-self: start; }
+    .site-nav-links {
+      display: flex; flex: 1 1 auto; justify-content: center; align-items: center;
+      flex-wrap: wrap; gap: 12px 16px; padding: 0 8px 4px;
+    }
+    .site-nav-links a {
+      display: inline-flex; align-items: center; justify-content: center; padding: 6px 14px;
+      border-radius: 999px; border: 1px solid transparent; font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; color: #1d4ed8; background: transparent; white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    .site-nav-links a:hover { border-color: rgba(29,78,216,0.5); background: rgba(29,78,216,0.12); box-shadow: 0 4px 12px rgba(15,23,42,0.12); }
+    .site-main { width: 100%; flex: 1 1 auto; }
+    .site-content { max-width: 1200px; margin: 0 auto; padding: 0 24px 64px; }
+    .dashboard-content h1, h2, h3 { color: #0b1324; line-height: 1.3; margin-top: 1.6em; }
+    .dashboard-content h1 { margin-top: 0; }
+
+    .filters {
+      display: flex; flex-wrap: wrap; gap: 16px; align-items: end;
+      margin: 20px 0; padding: 20px; background: #fff; border-radius: 12px;
+      border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(15,23,42,0.06);
+    }
+    .filter-group { display: flex; flex-direction: column; gap: 6px; }
+    .filter-group > span { font-size: 0.8rem; font-weight: 600; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; }
+    .filter-group label { font-size: 0.8rem; font-weight: 600; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; }
+    .filter-group select, .filter-group input {
+      padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.9rem;
+      background: #f8fafc; color: #0f172a;
+    }
+    .filter-group select:focus, .filter-group input:focus { outline: 2px solid #3b82f6; border-color: #3b82f6; }
+
+    .cycle-checks {
+      display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+    }
+    .cycle-checks label {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 5px 12px; border-radius: 999px; border: 1px solid #cbd5e1;
+      font-size: 0.85rem; font-weight: 600; color: #475569; background: #f8fafc;
+      cursor: pointer; user-select: none; transition: all 0.15s ease;
+      text-transform: none; letter-spacing: normal;
+    }
+    .cycle-checks label:hover { border-color: rgba(29,78,216,0.5); background: rgba(29,78,216,0.06); }
+    .cycle-checks input:checked + span { color: #1d4ed8; }
+    .cycle-checks label:has(input:checked) { border-color: #1d4ed8; background: rgba(29,78,216,0.08); }
+    .cycle-checks input { accent-color: #1d4ed8; margin: 0; }
+
+    .summary-bar {
+      display: flex; flex-wrap: wrap; gap: 24px; margin: 16px 0;
+      padding: 16px 20px; background: #eef2ff; border-radius: 10px; border-left: 4px solid #312e81;
+    }
+    .summary-stat { display: flex; flex-direction: column; }
+    .summary-stat .value { font-size: 1.4rem; font-weight: 700; color: #1e1b4b; }
+    .summary-stat .label { font-size: 0.8rem; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    .dashboard-content table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9em; background: #fff; }
+    th, td { border: 1px solid #e5e7eb; padding: 10px 12px; text-align: left; }
+    .dashboard-content th { background: #f1f5f9; font-weight: 600; cursor: pointer; user-select: none; white-space: nowrap; }
+    th:hover { background: #e2e8f0; }
+    th .sort-arrow { font-size: 0.7em; margin-left: 4px; color: #94a3b8; }
+    th .sort-arrow.active { color: #1d4ed8; }
+    tr:nth-child(even) { background: #f8fafc; }
+    tr:hover { background: #eef2ff; }
+    td.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+    tr.pi-row { cursor: pointer; }
+    tr.pi-row td:first-child { font-weight: 600; }
+    tr.pi-row .expand-icon {
+      display: inline-block; width: 16px; font-size: 0.75em; color: #94a3b8;
+      transition: transform 0.15s ease; margin-right: 6px;
+    }
+    tr.pi-row.is-open .expand-icon { transform: rotate(90deg); }
+    tr.detail-row { display: none; }
+    tr.detail-row.is-visible { display: table-row; }
+    tr.detail-row td { padding-top: 6px; padding-bottom: 6px; color: #475569; font-size: 0.85em; }
+    tr.detail-row td:first-child { padding-left: 36px; color: #64748b; }
+
+    .note { font-size: 0.85rem; color: #64748b; margin: 8px 0; }
+    .help-text { font-size: 0.9rem; color: #475569; margin: 8px 0 20px; }
+  </style>
+<nav class="dashboard-nav">
+  <a href="{{ '/dashboard/' | relative_url }}">Overview</a>
+  <a href="{{ '/dashboard/pi-profiles/' | relative_url }}">PI Profiles</a>
+  <a href="{{ '/dashboard/awards/' | relative_url }}">Awards &amp; Cycles</a>
+  <a href="{{ '/dashboard/job-scale/' | relative_url }}">Job Scale</a>
+</nav>
+
+
+  
+    <h1>Job Scale by PI</h1>
+    <p class="help-text">
+      Filter by cycle and minimum GPU count to see which PIs are running jobs at different scales.
+      Click a PI row to expand the GPU/node breakdown. GPU-hours reflect allocation-based accounting.
+    </p>
+
+    <div class="filters">
+      <div class="filter-group">
+        <span>Cycles</span>
+        <div class="cycle-checks" id="f-cycles"></div>
+      </div>
+      <div class="filter-group">
+        <label for="f-gpus">Min GPUs</label>
+        <select id="f-gpus">
+          <option value="0">Any</option>
+          <option value="1">1+</option>
+          <option value="8">8+ (1 node)</option>
+          <option value="16" selected>16+ (2+ nodes)</option>
+          <option value="32">32+ (4+ nodes)</option>
+          <option value="64">64+ (8+ nodes)</option>
+          <option value="128">128+ (16 nodes)</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="f-nodes">Min Nodes</label>
+        <select id="f-nodes">
+          <option value="0">Any</option>
+          <option value="2">2+</option>
+          <option value="4">4+</option>
+          <option value="8">8+</option>
+          <option value="16">16</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="f-pi">PI search</label>
+        <input id="f-pi" type="text" placeholder="Name or SUNetID" size="18">
+      </div>
+    </div>
+
+    <div class="summary-bar">
+      <div class="summary-stat"><span class="value" id="s-pis">—</span><span class="label">PIs</span></div>
+      <div class="summary-stat"><span class="value" id="s-jobs">—</span><span class="label">Jobs</span></div>
+      <div class="summary-stat"><span class="value" id="s-gpuhrs">—</span><span class="label">GPU-hours</span></div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th data-col="pi_name">PI <span class="sort-arrow">&#9650;&#9660;</span></th>
+          <th data-col="configs">Configs <span class="sort-arrow">&#9650;&#9660;</span></th>
+          <th data-col="jobs">Jobs <span class="sort-arrow">&#9650;&#9660;</span></th>
+          <th data-col="gpu_hrs">GPU-hrs <span class="sort-arrow">&#9650;&#9660;</span></th>
+        </tr>
+      </thead>
+      <tbody id="results"></tbody>
+    </table>
+    <p class="note" id="note"></p>
+  </div>
+</main>
+</div>
+
+<script>
+(function() {
+  let DATA = null;
+  let sortCol = 'gpu_hrs';
+  let sortAsc = false;
+  const expanded = new Set();
+
+  const CYCLE_ORDER = {'Beta':0, 'Pre-Cycle':1, 'Cycle 1':2, 'Cycle 2':3, 'Cycle 3':4, 'Cycle 4':5, 'Cycle 5':6};
+
+  function getSelectedCycles() {
+    const checks = document.querySelectorAll('#f-cycles input[type=checkbox]');
+    const selected = [];
+    checks.forEach(cb => { if (cb.checked) selected.push(cb.value); });
+    return selected;
+  }
+
+  function buildPiGroups() {
+    const selectedCycles = getSelectedCycles();
+    const minGpus = parseInt(document.getElementById('f-gpus').value) || 0;
+    const minNodes = parseInt(document.getElementById('f-nodes').value) || 0;
+    const piSearch = document.getElementById('f-pi').value.toLowerCase().trim();
+
+    // Filter raw entries
+    const filtered = DATA.entries.filter(e => {
+      if (selectedCycles.length > 0 && !selectedCycles.includes(e.cycle)) return false;
+      if (e.gpus < minGpus) return false;
+      if (e.nodes < minNodes) return false;
+      if (piSearch && !e.pi_name.toLowerCase().includes(piSearch) && !e.pi.toLowerCase().includes(piSearch)) return false;
+      return true;
+    });
+
+    // Aggregate detail rows by (PI, GPUs, Nodes)
+    const detailMap = new Map();
+    filtered.forEach(e => {
+      const key = `${e.pi}|${e.gpus}|${e.nodes}`;
+      if (!detailMap.has(key)) {
+        detailMap.set(key, { pi: e.pi, pi_name: e.pi_name, gpus: e.gpus, nodes: e.nodes, jobs: 0, gpu_hrs: 0 });
+      }
+      const row = detailMap.get(key);
+      row.jobs += e.jobs;
+      row.gpu_hrs += e.gpu_hrs;
+    });
+
+    // Group detail rows by PI, compute PI totals
+    const piMap = new Map();
+    detailMap.forEach(d => {
+      if (!piMap.has(d.pi)) {
+        piMap.set(d.pi, { pi: d.pi, pi_name: d.pi_name, jobs: 0, gpu_hrs: 0, details: [] });
+      }
+      const pi = piMap.get(d.pi);
+      pi.jobs += d.jobs;
+      pi.gpu_hrs += d.gpu_hrs;
+      pi.details.push(d);
+    });
+
+    // Sort details within each PI by GPU-hours descending
+    piMap.forEach(pi => {
+      pi.details.sort((a, b) => b.gpu_hrs - a.gpu_hrs);
+      pi.configs = pi.details.length;
+    });
+
+    return Array.from(piMap.values());
+  }
+
+  function render() {
+    if (!DATA) return;
+
+    const piGroups = buildPiGroups();
+
+    // Sort PIs
+    piGroups.sort((a, b) => {
+      const va = sortValue(a, sortCol);
+      const vb = sortValue(b, sortCol);
+      let cmp = 0;
+      if (typeof va === 'string') cmp = va.localeCompare(vb);
+      else cmp = va - vb;
+      return sortAsc ? cmp : -cmp;
+    });
+
+    // Summary
+    document.getElementById('s-pis').textContent = piGroups.length.toLocaleString();
+    document.getElementById('s-jobs').textContent = piGroups.reduce((s, p) => s + p.jobs, 0).toLocaleString();
+    document.getElementById('s-gpuhrs').textContent = Math.round(piGroups.reduce((s, p) => s + p.gpu_hrs, 0)).toLocaleString();
+
+    // Table
+    const tbody = document.getElementById('results');
+    let html = '';
+    const display = piGroups.slice(0, 200);
+    display.forEach(pi => {
+      const isOpen = expanded.has(pi.pi);
+      html += `<tr class="pi-row ${isOpen ? 'is-open' : ''}" data-pi="${esc(pi.pi)}">
+        <td><span class="expand-icon">&#9654;</span>${esc(pi.pi_name)}</td>
+        <td class="num">${pi.configs}</td>
+        <td class="num">${pi.jobs.toLocaleString()}</td>
+        <td class="num">${Math.round(pi.gpu_hrs).toLocaleString()}</td>
+      </tr>`;
+      pi.details.forEach(d => {
+        html += `<tr class="detail-row ${isOpen ? 'is-visible' : ''}" data-pi="${esc(pi.pi)}">
+          <td>${d.gpus} GPUs / ${d.nodes} node${d.nodes !== 1 ? 's' : ''}</td>
+          <td class="num"></td>
+          <td class="num">${d.jobs.toLocaleString()}</td>
+          <td class="num">${Math.round(d.gpu_hrs).toLocaleString()}</td>
+        </tr>`;
+      });
+    });
+    tbody.innerHTML = html;
+
+    // Attach click handlers to PI rows
+    tbody.querySelectorAll('tr.pi-row').forEach(row => {
+      row.addEventListener('click', () => {
+        const pi = row.dataset.pi;
+        if (expanded.has(pi)) { expanded.delete(pi); } else { expanded.add(pi); }
+        row.classList.toggle('is-open');
+        tbody.querySelectorAll(`tr.detail-row[data-pi="${pi}"]`).forEach(dr => {
+          dr.classList.toggle('is-visible');
+        });
+      });
+    });
+
+    const note = document.getElementById('note');
+    if (piGroups.length > 200) {
+      note.textContent = `Showing 200 of ${piGroups.length} PIs. Use filters to narrow.`;
+    } else {
+      note.textContent = '';
+    }
+
+    // Sort indicators
+    document.querySelectorAll('th[data-col]').forEach(th => {
+      const arrow = th.querySelector('.sort-arrow');
+      if (th.dataset.col === sortCol) {
+        arrow.classList.add('active');
+        arrow.textContent = sortAsc ? '\u25B2' : '\u25BC';
+      } else {
+        arrow.classList.remove('active');
+        arrow.textContent = '\u25B2\u25BC';
+      }
+    });
+  }
+
+  function sortValue(entry, col) {
+    switch (col) {
+      case 'pi_name': return entry.pi_name.toLowerCase();
+      case 'configs': return entry.configs;
+      case 'jobs': return entry.jobs;
+      case 'gpu_hrs': return entry.gpu_hrs;
+      default: return 0;
+    }
+  }
+
+  function esc(s) {
+    const d = document.createElement('div');
+    d.textContent = String(s);
+    return d.innerHTML;
+  }
+
+  // Event listeners
+  document.querySelectorAll('#f-gpus, #f-nodes').forEach(el => el.addEventListener('change', render));
+  document.getElementById('f-pi').addEventListener('input', render);
+  document.querySelectorAll('th[data-col]').forEach(th => {
+    th.addEventListener('click', () => {
+      const col = th.dataset.col;
+      if (sortCol === col) { sortAsc = !sortAsc; }
+      else { sortCol = col; sortAsc = col === 'pi_name'; }
+      render();
+    });
+  });
+
+  // Load data
+  fetch('../assets/job_scale_summary.json')
+    .then(r => r.json())
+    .then(data => {
+      DATA = data;
+
+      // Build cycle checkboxes
+      const cycles = [...new Set(data.entries.map(e => e.cycle))];
+      cycles.sort((a, b) => (CYCLE_ORDER[a] ?? 99) - (CYCLE_ORDER[b] ?? 99));
+      const container = document.getElementById('f-cycles');
+      cycles.forEach(c => {
+        const lbl = document.createElement('label');
+        const cb = document.createElement('input');
+        cb.type = 'checkbox';
+        cb.value = c;
+        cb.checked = true;
+        cb.addEventListener('change', render);
+        const span = document.createElement('span');
+        span.textContent = c;
+        lbl.appendChild(cb);
+        lbl.appendChild(span);
+        container.appendChild(lbl);
+      });
+
+      render();
+    })
+    .catch(err => {
+      document.getElementById('results').innerHTML = `<tr><td colspan="4">Error loading data: ${err.message}</td></tr>`;
+    });
+})();
+</script>
+<details class="sreport-provenance" style="margin-top:24px;">
+  <summary>Data Provenance</summary>
+  <div class="sreport-provenance-content">
+    <p><strong>Source:</strong> <code>sreport</code> via SSH to <code>login-02.marlowe.stanford.edu</code></p>
+    <p><strong>Method:</strong> <code>sreport cluster AccountUtilizationByUser -t hours -T cpu,gres/gpu --parsable2</code></p>
+    <p><strong>Cluster capacity:</strong> 248 GPUs (5,952 GPU-hours/day)</p>
+    <p><strong>Cycles:</strong> Beta, Pre-Cycle, Cycle 1, Cycle 2, Cycle 3, Cycle 4, Cycle 5</p>
+    <p><strong>Data through:</strong> Feb 20, 2026</p>
+  </div>
+</details>
+
+</div>

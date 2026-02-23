@@ -1,0 +1,52 @@
+- title: Home
+  url: /documentation/
+
+- title: Getting Started
+  items:
+    - title: Get Access
+      url: /documentation/getting-started/
+    - title: Connecting
+      url: /documentation/getting-started/connecting/
+    - title: Filesystems
+      url: /documentation/getting-started/filesystems/
+    - title: Globus
+      url: /documentation/getting-started/globus/
+
+- title: SLURM and Open OnDemand
+  items:
+    - title: SLURM on Marlowe
+      url: /documentation/slurm/
+    - title: Open OnDemand
+      url: /documentation/openondemand/
+
+- title: Software
+  items:
+    - title: Overview
+      url: /documentation/software/
+    - title: Apptainer
+      url: /documentation/software/apptainer/
+    - title: Conda
+      url: /documentation/software/conda/
+    - title: Conan
+      url: /documentation/software/conan/
+    - title: CuDNN
+      url: /documentation/software/cudnn/
+    - title: CUDA Toolkit
+      url: /documentation/software/cudatoolkit/
+    - title: Java
+      url: /documentation/software/java/
+    - title: Nvidia HPC SDK
+      url: /documentation/software/nvhpc/
+    - title: NGC NIMs
+      url: /documentation/ngc-nims/
+
+- title: Support
+  items:
+    - title: Help & Support
+      url: /documentation/help-and-support/
+    - title: FAQ
+      url: /documentation/faq/
+    - title: Tech Specs
+      url: /documentation/specs/
+    - title: Usage Violations
+      url: /documentation/violations/

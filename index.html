@@ -8,9 +8,9 @@ title: Overview
   <div class="container">
     <div class="hero-content">
       <h1>Marlowe</h1>
-      <p class="hero-subtitle">Stanford's first GPU-based supercomputer — 248 NVIDIA H100 GPUs powering frontier AI research across seven schools. Operated by Stanford Data Science.</p>
+      <p class="hero-subtitle">Stanford's first GPU-based supercomputer: 248 NVIDIA H100 GPUs powering frontier AI research across seven schools. Operated by Stanford Data Science.</p>
       <div class="hero-actions">
-        <a href="https://datascience.stanford.edu/marlowe/marlowe-access" class="btn btn-white">Apply for Access</a>
+        <a href="{{ '/access/' | relative_url }}" class="btn btn-white">Apply for Access</a>
         <a href="{{ '/research/' | relative_url }}" class="btn btn-white-outline">Explore Research</a>
       </div>
     </div>
@@ -29,7 +29,7 @@ title: Overview
           <h2>GPU-Based Computational Instrument</h2>
         </div>
         <div class="instrument-text">
-          <p>Marlowe is a large, high-performance GPU-based computational instrument designed to support Stanford research requiring intensive parallel computing. Named for the tradition of naming scientific instruments, Marlowe provides researchers with the infrastructure to train foundation models, run large-scale simulations, and pursue computational work at scales previously available only to industry.</p>
+          <p>Named after Philip Marlowe, the film noir detective, Marlowe is Stanford's first large-scale GPU computational instrument, designed to give faculty the infrastructure to train foundation models, run large-scale simulations, and pursue computational work at scales previously available only to industry.</p>
           <p>A team of Research Data Scientists partners directly with faculty to optimize code, scale training across multiple nodes, and maximize the scientific return from every GPU-hour allocated.</p>
           <ul>
             <li>Partner with faculty to design and execute GPU-accelerated research</li>
@@ -39,30 +39,33 @@ title: Overview
           </ul>
           <p><a href="https://news.stanford.edu/stories/2024/12/stanford-welcomes-first-gpu-based-supercomputer">Read the Stanford Report feature &rarr;</a></p>
         </div>
-        <table class="specs-table">
-          <thead>
-            <tr>
-              <th colspan="2">Technical Specifications</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td class="spec-label">GPU</td><td class="spec-value">248x NVIDIA H100 80GB SXM5</td></tr>
-            <tr><td class="spec-label">Nodes</td><td class="spec-value">31 (8 GPUs per node)</td></tr>
-            <tr><td class="spec-label">CPU</td><td class="spec-value">2x Intel Xeon Platinum 8480+ (112 cores/node)</td></tr>
-            <tr><td class="spec-label">Memory</td><td class="spec-value">2 TB RAM per node</td></tr>
-            <tr><td class="spec-label">Interconnect</td><td class="spec-value">NVIDIA InfiniBand NDR (400 Gb/s)</td></tr>
-            <tr><td class="spec-label">Storage</td><td class="spec-value">2.5 PB parallel filesystem</td></tr>
-            <tr><td class="spec-label">GPU Interconnect</td><td class="spec-value">NVLink + NVSwitch (intra-node)</td></tr>
-            <tr><td class="spec-label">Data Classification</td><td class="spec-value">Low & Moderate Risk</td></tr>
-          </tbody>
-        </table>
-        <div class="callout" style="margin-top: 1.5rem;">
-          <p><strong>Citing Marlowe:</strong> <a href="https://doi.org/10.5281/zenodo.14538206">Zenodo DOI 10.5281/zenodo.14538206</a></p>
-        </div>
       </div>
       <div>
         {% include updates-feed.html %}
       </div>
+    </div>
+    <!-- Quick Links — full width below both columns -->
+    <div class="quick-links-grid" style="margin-top: 2.5rem;">
+      <a href="{{ '/access/' | relative_url }}" class="quick-link-card">
+        <div class="ql-icon">&#9889;</div>
+        <h4>Apply for Access</h4>
+        <p>5,000 free GPU-hours for new PIs. Get started with your first allocation!</p>
+      </a>
+      <a href="{{ '/about/' | relative_url }}" class="quick-link-card">
+        <div class="ql-icon">&#9881;</div>
+        <h4>Technical Specs</h4>
+        <p>248 H100 GPUs, InfiniBand NDR, 2.5 PB storage.</p>
+      </a>
+      <a href="{{ '/documentation/' | relative_url }}" class="quick-link-card">
+        <div class="ql-icon">&#128214;</div>
+        <h4>Documentation</h4>
+        <p>Getting started, multi-node training, Slurm scheduling.</p>
+      </a>
+      <a href="{{ '/dashboard/' | relative_url }}" class="quick-link-card">
+        <div class="ql-icon">&#128202;</div>
+        <h4>Dashboard</h4>
+        <p>Live utilization data, allocation tracking, cluster health.</p>
+      </a>
     </div>
   </div>
 </section>
@@ -71,17 +74,17 @@ title: Overview
 <section class="section section-alt">
   <div class="container">
     <div class="section-header">
-      <h2>Research Focus</h2>
-      <a href="{{ '/research/' | relative_url }}" class="see-all">View all researchers &rarr;</a>
+      <h2>Research Spotlights</h2>
+      <a href="{{ '/research/' | relative_url }}" class="see-all">View all spotlights &rarr;</a>
     </div>
-    <p style="color: var(--cool-grey); margin-top: -1rem; margin-bottom: 2rem; max-width: 680px;">Faculty from across Stanford are using Marlowe to train foundation models at scales previously available only to industry — from 80-billion-parameter brain models to genomic foundation models.</p>
+    <p style="color: var(--cool-grey); margin-top: -1rem; margin-bottom: 2rem;">Faculty from across Stanford are using Marlowe to train foundation models at scales previously available only to industry.</p>
     <div class="researcher-grid">
       {% for researcher in site.data.researchers limit:4 %}
         {% include researcher-card.html researcher=researcher %}
       {% endfor %}
     </div>
     <div style="text-align: center; margin-top: 2rem;">
-      <a href="{{ '/research/' | relative_url }}" class="btn btn-primary">View All 9 Research Groups</a>
+      <a href="{{ '/research/' | relative_url }}" class="btn btn-primary">View More</a>
     </div>
   </div>
 </section>
@@ -92,10 +95,10 @@ title: Overview
     <div class="cta-banner">
       <div>
         <h3>New to Marlowe?</h3>
-        <p>Introductory GPU hours are available at no cost for Stanford faculty. Get started with your first allocation in under a week.</p>
+        <p>Principal Investigators new to Marlowe are eligible for 5,000 free GPU-hours. Get started with your first allocation!</p>
       </div>
       <div style="flex-shrink: 0;">
-        <a href="https://datascience.stanford.edu/marlowe/marlowe-access" class="btn btn-white">Apply for Access</a>
+        <a href="{{ '/access/' | relative_url }}" class="btn btn-white">Apply for Access</a>
       </div>
     </div>
   </div>
@@ -108,7 +111,10 @@ title: Overview
       <h2>In the Press</h2>
     </div>
     <div class="callout">
-      <p><a href="https://news.stanford.edu/stories/2024/12/stanford-welcomes-first-gpu-based-supercomputer"><strong>Stanford welcomes first GPU-based supercomputer</strong></a> — Stanford Report, December 2024</p>
+      <p><a href="https://news.stanford.edu/stories/2025/02/coda-marks-new-era-for-computing-and-data-science-at-stanford"><strong>CoDa marks new era for computing and data science at Stanford</strong></a> (Stanford Report, February 2025)</p>
+    </div>
+    <div class="callout">
+      <p><a href="https://news.stanford.edu/stories/2024/12/stanford-welcomes-first-gpu-based-supercomputer"><strong>Stanford welcomes first GPU-based supercomputer</strong></a> (Stanford Report, December 2024)</p>
     </div>
   </div>
 </section>

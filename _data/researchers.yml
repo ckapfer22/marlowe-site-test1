@@ -18,7 +18,7 @@
   summary: >
     Training an 80-billion-parameter brain-inspired neural network to study how
     biological neural circuits give rise to cognitive function. The model learns
-    to predict how the world changes in response to actions — a core building
+    to predict how the world changes in response to actions, a core building
     block of biological intelligence.
   domain: Computational Neuroscience / AI
   nodes: 24
@@ -46,7 +46,7 @@
   summary: >
     Training large multimodal transformers on time-resolved neural recordings,
     visual stimulation, and behavioral data to build a foundation model of the
-    primate brain — decoding how the brain processes and integrates information
+    primate brain, decoding how the brain processes and integrates information
     across sensory modalities.
   domain: Neuroscience / AI
   nodes: 8
@@ -78,7 +78,7 @@
       url: https://crfm.stanford.edu/
   project_title: "AI Virtual Cell: Genomic Foundation Models at Frontier Scale"
   summary: >
-    Building the molecular scale of the AI Virtual Cell — novel foundation models
+    Building the molecular scale of the AI Virtual Cell with novel foundation models
     for genomic sequences (DNA, RNA, proteins) scaling from 770M to 15B parameters.
     The goal is open-source models comparable to ESM-3 and EVO-2, trained at
     frontier LLM scale.
@@ -163,7 +163,7 @@
   project_title: "Video World Models for Real-Time Scene Synthesis and Autonomous Driving"
   summary: >
     Building scalable video world models that generate photorealistic novel views of
-    dynamic scenes in real time — fine-tuning 1.3B-parameter video diffusion models
+    dynamic scenes in real time by fine-tuning 1.3B-parameter video diffusion models
     conditioned on sparse 3D geometry from LiDAR, with publications at SIGGRAPH 2024
     and CVPR 2025.
   domain: Computer Vision / Generative AI / Autonomous Systems
@@ -217,7 +217,7 @@
   project_title: "4D Scene Understanding: AI for Dynamic Real-World Environments"
   summary: >
     Developing GPU-accelerated systems for understanding how physical spaces change
-    over time — from construction sites to indoor environments. Transformer architectures
+    over time, from construction sites to indoor environments. Transformer architectures
     for 4D instance segmentation and monocular video reconstruction require sustained
     multi-GPU training exceeding 72 hours per run.
   domain: Computer Vision / 3D Scene Understanding

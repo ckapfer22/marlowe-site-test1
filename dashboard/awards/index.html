@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Dashboard: Overview"
+title: "Dashboard: Awards & Cycles"
 ---
 <div class="dashboard-content">
 <style>
@@ -275,6 +275,188 @@ img {
 </style>
 
 <style>.site-content > h1:first-child { margin-top: 0; }</style>
+
+  
+<style>
+.awards-spotlight-grid {
+  display: grid;
+  gap: 32px;
+  margin: 24px 0 36px;
+}
+@media (min-width: 720px) {
+  .awards-spotlight-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.spotlight-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.spotlight-media-button {
+  display: flex;
+  position: relative;
+  padding: 0;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  background: transparent;
+}
+.spotlight-media-button img {
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+}
+.spotlight-media-hint {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(15, 23, 42, 0.75);
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+.spotlight-actions {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.spotlight-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: #1d4ed8;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid #1d4ed8;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+.spotlight-button:hover,
+.spotlight-button:focus-visible {
+  background: #1e40af;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(30, 64, 175, 0.35);
+}
+.spotlight-expand-link {
+  border: 1px solid #cbd5f5;
+  background: #f8fbff;
+  color: #1d4ed8;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.spotlight-expand-link:hover,
+.spotlight-expand-link:focus-visible {
+  background: rgba(29, 78, 216, 0.08);
+}
+.spotlight-lightbox {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 80;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.spotlight-lightbox[data-visible="true"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+.spotlight-lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+}
+.spotlight-lightbox__panel {
+  position: relative;
+  z-index: 1;
+  width: min(960px, 92vw);
+  max-height: 90vh;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.45);
+}
+.spotlight-lightbox__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+.spotlight-lightbox__close {
+  border: none;
+  background: rgba(148, 163, 184, 0.15);
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.spotlight-lightbox__mode-toggle {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.mode-toggle-chip {
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: #f8fbff;
+  color: #475569;
+  padding: 8px 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.mode-toggle-chip.is-active {
+  background: #1d4ed8;
+  color: #ffffff;
+  border-color: #1d4ed8;
+}
+.spotlight-lightbox__open-link {
+  margin-left: auto;
+  text-decoration: none;
+  font-weight: 600;
+  color: #1d4ed8;
+}
+.spotlight-lightbox__image-wrapper {
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 12px;
+  background: #f8fafc;
+  overflow: auto;
+}
+.spotlight-lightbox__image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.cycle-overview-table {
+  margin-top: 12px;
+}
+.cycle-overview-table th,
+.cycle-overview-table td {
+  text-align: left;
+}
+</style>
 <nav class="dashboard-nav">
   <a href="{{ '/dashboard/' | relative_url }}">Overview</a>
   <a href="{{ '/dashboard/pi-profiles/' | relative_url }}">PI Profiles</a>
@@ -282,26 +464,301 @@ img {
   <a href="{{ '/dashboard/job-scale/' | relative_url }}">Job Scale</a>
 </nav>
 
+<h1>Awards & Cycles</h1>
 
-  
-<h1>Marlowe Research GPU Usage</h1>
+<div class="awards-spotlight-grid">
+  <section class="spotlight-card" data-chart-title="Project awards spotlight" data-chart-description="Daily share of Marlowe GPU capacity used by the busiest project awards (7-day rolling average)." data-chart-alt="Daily cluster utilization for top project awards." data-default-mode="sreport">
+    <h3>Project awards spotlight</h3>
+    <p>Daily share of Marlowe GPU capacity used by the busiest project awards (7-day rolling average).</p>
+    <button type="button" class="spotlight-media-button" aria-label="Expand chart: Project awards spotlight">
+      <canvas id="chart-project" height="400" style="width:100%;background:#fff;border-radius:8px;margin:12px 0 18px;"></canvas>
+      <span class="spotlight-media-hint">Tap to expand</span>
+    </button>
+    <div class="spotlight-actions">
+      
+      <button type="button" class="spotlight-expand-link">Expand chart</button>
+    </div>
+  </section>
+  <section class="spotlight-card" data-chart-title="Basic awards spotlight" data-chart-description="Track how foundational/basic allocations consume the cluster relative to capacity." data-chart-alt="Daily cluster utilization for top basic awards." data-default-mode="sreport">
+    <h3>Basic awards spotlight</h3>
+    <p>Track how foundational/basic allocations consume the cluster relative to capacity.</p>
+    <button type="button" class="spotlight-media-button" aria-label="Expand chart: Basic awards spotlight">
+      <canvas id="chart-basic" height="400" style="width:100%;background:#fff;border-radius:8px;margin:12px 0 18px;"></canvas>
+      <span class="spotlight-media-hint">Tap to expand</span>
+    </button>
+    <div class="spotlight-actions">
+      
+      <button type="button" class="spotlight-expand-link">Expand chart</button>
+    </div>
+  </section>
+  <section class="spotlight-card" data-chart-title="Free awards spotlight" data-chart-description="Free-cycle awards plotted with the same daily utilization lens." data-chart-alt="Daily cluster utilization for top free awards." data-default-mode="sreport">
+    <h3>Free awards spotlight</h3>
+    <p>Free-cycle awards plotted with the same daily utilization lens.</p>
+    <button type="button" class="spotlight-media-button" aria-label="Expand chart: Free awards spotlight">
+      <canvas id="chart-free" height="400" style="width:100%;background:#fff;border-radius:8px;margin:12px 0 18px;"></canvas>
+      <span class="spotlight-media-hint">Tap to expand</span>
+    </button>
+    <div class="spotlight-actions">
+      
+      <button type="button" class="spotlight-expand-link">Expand chart</button>
+    </div>
+  </section>
+</div>
 
-This site summarizes Slurm-derived GPU/CPU usage, aggregated by award, PI, and cycle.
+<div class="spotlight-lightbox" data-visible="false" aria-hidden="true">
+  <div class="spotlight-lightbox__backdrop" data-lightbox-close="true"></div>
+  <div class="spotlight-lightbox__panel" role="dialog" aria-modal="true" aria-label="Expanded spotlight chart" tabindex="-1">
+    <div class="spotlight-lightbox__header">
+      <div>
+        <h3 class="spotlight-lightbox__title"></h3>
+        <p class="spotlight-lightbox__description"></p>
+      </div>
+      <button type="button" class="spotlight-lightbox__close" aria-label="Close expanded chart">&times;</button>
+    </div>
+    <div class="spotlight-lightbox__image-wrapper">
+      <img src="" alt="" loading="lazy" />
+    </div>
+  </div>
+</div>
 
-<canvas id="chart-cluster" height="400" style="width:100%;background:#fff;border-radius:8px;margin:12px 0 18px;"></canvas>
+<script>
+(function() {
+  const cards = Array.from(document.querySelectorAll('.spotlight-card'));
+  const lightbox = document.querySelector('.spotlight-lightbox');
+  if (!cards.length || !lightbox) {
+    return;
+  }
+  const siteRoot = document.querySelector('.site-root');
+  const pageMode = (siteRoot && siteRoot.dataset.usageMode) || 'sreport';
+  const panel = lightbox.querySelector('.spotlight-lightbox__panel');
+  const titleEl = lightbox.querySelector('.spotlight-lightbox__title');
+  const descEl = lightbox.querySelector('.spotlight-lightbox__description');
+  const imgEl = lightbox.querySelector('.spotlight-lightbox__image-wrapper img');
+  const openLink = lightbox.querySelector('.spotlight-lightbox__open-link');
+  const modeButtons = Array.from(lightbox.querySelectorAll('.mode-toggle-chip'));
+  let currentCard = null;
+  let currentMode = pageMode;
 
-<h2>Project Awards Spotlight</h2>
-Top project awards by daily GPU usage as a percent of cluster capacity (with 7-day rolling average).
-<canvas id="chart-project" height="400" style="width:100%;background:#fff;border-radius:8px;margin:12px 0 18px;"></canvas>
+  const STORAGE_KEY = 'awardsSpotlightPreferredMode';
 
-<h2>Basic Awards Spotlight</h2>
-Top basic awards by daily GPU usage as a percent of cluster capacity (with 7-day rolling average).
-<canvas id="chart-basic" height="400" style="width:100%;background:#fff;border-radius:8px;margin:12px 0 18px;"></canvas>
+  const loadStoredMode = () => {
+    try {
+      return localStorage.getItem(STORAGE_KEY) || null;
+    } catch (e) {
+      return null;
+    }
+  };
 
-<h2>Free Awards Spotlight</h2>
-Top free awards by daily GPU usage as a percent of cluster capacity (with 7-day rolling average).
-<canvas id="chart-free" height="400" style="width:100%;background:#fff;border-radius:8px;margin:12px 0 18px;"></canvas>
+  const saveStoredMode = (mode) => {
+    try {
+      localStorage.setItem(STORAGE_KEY, mode);
+    } catch (e) {
+      // Ignore storage errors
+    }
+  };
 
+  const datasetKey = (modeValue) => (modeValue === 'sacct' ? 'sacctSrc' : 'sreportSrc');
+
+  const setMode = (nextMode) => {
+    if (!currentCard || !imgEl) {
+      return;
+    }
+    const normalized = nextMode === 'sacct' ? 'sacct' : 'sreport';
+    const primaryKey = datasetKey(normalized);
+    let src = currentCard.dataset[primaryKey];
+    let activeMode = normalized;
+    if (!src) {
+      const fallbackMode = normalized === 'sacct' ? 'sreport' : 'sacct';
+      const fallbackKey = datasetKey(fallbackMode);
+      src = currentCard.dataset[fallbackKey] || '';
+      if (src) {
+        activeMode = fallbackMode;
+      }
+    }
+    currentMode = activeMode;
+    saveStoredMode(currentMode);
+    if (src) {
+      imgEl.src = src;
+      imgEl.alt = currentCard.dataset.chartAlt || '';
+      if (openLink) {
+        openLink.hidden = false;
+        openLink.href = src;
+        openLink.textContent = `Open ${activeMode} PNG in new tab`;
+        openLink.setAttribute('aria-label', `Open ${activeMode} PNG in new tab`);
+      }
+    } else if (openLink) {
+      openLink.hidden = true;
+      openLink.removeAttribute('href');
+    }
+    modeButtons.forEach((btn) => {
+      const isActive = (btn.dataset.mode || 'sreport') === currentMode;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+  };
+
+  const openCard = (card) => {
+    currentCard = card;
+    if (titleEl) {
+      titleEl.textContent = card.dataset.chartTitle || '';
+    }
+    if (descEl) {
+      descEl.textContent = card.dataset.chartDescription || '';
+    }
+    lightbox.dataset.visible = 'true';
+    lightbox.setAttribute('aria-hidden', 'false');
+    const storedMode = loadStoredMode();
+    const startingMode = storedMode || card.dataset.defaultMode || pageMode;
+    setMode(startingMode);
+    if (panel) {
+      window.requestAnimationFrame(() => panel.focus());
+    }
+  };
+
+  const closeLightbox = () => {
+    if (lightbox.dataset.visible !== 'true') {
+      return;
+    }
+    lightbox.dataset.visible = 'false';
+    lightbox.setAttribute('aria-hidden', 'true');
+    currentCard = null;
+  };
+
+  cards.forEach((card) => {
+    card.querySelectorAll('.spotlight-media-button, .spotlight-expand-link').forEach((trigger) => {
+      trigger.addEventListener('click', () => openCard(card));
+    });
+    const imgInButton = card.querySelector('.spotlight-media-button img');
+    if (imgInButton) {
+      imgInButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openCard(card);
+      });
+    }
+  });
+
+  modeButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const targetMode = btn.dataset.mode || 'sreport';
+      setMode(targetMode);
+    });
+  });
+
+  lightbox.querySelectorAll('[data-lightbox-close], .spotlight-lightbox__close').forEach((el) => {
+    el.addEventListener('click', closeLightbox);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && lightbox.dataset.visible === 'true') {
+      event.preventDefault();
+      closeLightbox();
+    }
+  });
+})();
+</script>
+
+<h2>Cycle Overview</h2>
+
+Quick stats for the most recent cycles (GPU hours, Marlowe days, awards, and average utilization).
+
+<table class="cycle-overview-table">
+  <thead>
+    <tr>
+      <th>Cycle</th>
+      <th>Dates</th>
+      <th>Awards</th>
+      <th>Calendar Days</th>
+      <th>Marlowe Days</th>
+      <th>GPU Hours</th>
+      <th>Util %</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cycle 5 *</td>
+      <td>02/06/26 – 04/29/26</td>
+      <td>62</td>
+      <td>83</td>
+      <td>9.1</td>
+      <td>54,261</td>
+      <td>57.0%</td>
+    </tr>
+    <tr>
+      <td>Cycle 4</td>
+      <td>11/12/25 – 02/03/26</td>
+      <td>131</td>
+      <td>84</td>
+      <td>63.6</td>
+      <td>378,760</td>
+      <td>75.8%</td>
+    </tr>
+    <tr>
+      <td>Cycle 3</td>
+      <td>08/20/25 – 11/11/25</td>
+      <td>80</td>
+      <td>84</td>
+      <td>55.5</td>
+      <td>330,310</td>
+      <td>66.1%</td>
+    </tr>
+    <tr>
+      <td>Cycle 2</td>
+      <td>07/09/25 – 08/19/25</td>
+      <td>46</td>
+      <td>42</td>
+      <td>13.8</td>
+      <td>82,186</td>
+      <td>32.9%</td>
+    </tr>
+    <tr>
+      <td>Cycle 1</td>
+      <td>05/21/25 – 07/08/25</td>
+      <td>79</td>
+      <td>49</td>
+      <td>41.3</td>
+      <td>245,750</td>
+      <td>84.3%</td>
+    </tr>
+    <tr>
+      <td>Pre-Cycle</td>
+      <td>01/24/25 – 05/20/25</td>
+      <td>78</td>
+      <td>117</td>
+      <td>90.0</td>
+      <td>535,791</td>
+      <td>76.9%</td>
+    </tr>
+    <tr>
+      <td>Beta</td>
+      <td>10/01/24 – 01/23/25</td>
+      <td>39</td>
+      <td>115</td>
+      <td>66.7</td>
+      <td>396,976</td>
+      <td>58.0%</td>
+    </tr>
+  </tbody>
+</table>
+<p style="font-size:0.85rem;color:#64748b;margin-top:4px;">* Active cycle — utilization computed over 15 active days (data through Feb 20, 2026).</p>
+<p style="font-size:0.85rem;color:#64748b;margin-top:4px;">† Eff. Util = Allocated / (100% &minus; Down%), i.e. utilization of <em>available</em> capacity excluding node downtime.</p>
+
+<h2>Data provenance</h2>
+
+<details class="sreport-provenance">
+  <summary>Sreport Command Provenance</summary>
+  <div class="sreport-provenance-content">
+    <p><strong>SSH Host:</strong> <code>login-02.marlowe.stanford.edu</code></p>
+    <p><strong>Module:</strong> <code>module load slurm</code></p>
+    <p><strong>Account:</strong> <code>marlowe-m000123-pm04</code></p>
+    <p><strong>Window:</strong> <code>start="2025-11-12T10:00:00"</code> <code>end="2026-02-03T11:00:00"</code></p>
+    <p><strong>Command:</strong></p>
+    <pre style="background: #ffffff; padding: 8px; border: 1px solid #e9ecef; border-radius: 3px; overflow-x: auto;">sreport cluster AccountUtilizationByUser -t hours -T gres/gpu --parsable2 -n start=&quot;2025-11-12T10:00:00&quot; end=&quot;2026-02-03T11:00:00&quot; Accounts=marlowe-m000123-pm04</pre>
+    <p style="margin-top: 8px; font-size: 0.75rem; color: #6c757d;">
+      This command queries GPU-hour utilization for the specified account and time window.
+      Results are aggregated from Slurm's accounting database.
+    </p>
+  </div>
+</details>
   <details class="sreport-provenance" style="margin-top:24px;">
   <summary>Data Provenance</summary>
   <div class="sreport-provenance-content">

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Dashboard: Overview"
+title: "Dashboard: PI Profiles"
 ---
 <div class="dashboard-content">
 <style>
@@ -284,24 +284,298 @@ img {
 
 
   
-<h1>Marlowe Research GPU Usage</h1>
+<h1>PI Profiles</h1>
 
-This site summarizes Slurm-derived GPU/CPU usage, aggregated by award, PI, and cycle.
+Top 5 PIs by daily percent of cluster capacity (with 7-day rolling average).
+<div id="period-selector"></div>
+<canvas id="chart-pis" height="400" style="width:100%;background:#fff;border-radius:8px;margin:12px 0 18px;"></canvas>
 
-<canvas id="chart-cluster" height="400" style="width:100%;background:#fff;border-radius:8px;margin:12px 0 18px;"></canvas>
+Top principal investigators by total GPU hours.
 
-<h2>Project Awards Spotlight</h2>
-Top project awards by daily GPU usage as a percent of cluster capacity (with 7-day rolling average).
-<canvas id="chart-project" height="400" style="width:100%;background:#fff;border-radius:8px;margin:12px 0 18px;"></canvas>
-
-<h2>Basic Awards Spotlight</h2>
-Top basic awards by daily GPU usage as a percent of cluster capacity (with 7-day rolling average).
-<canvas id="chart-basic" height="400" style="width:100%;background:#fff;border-radius:8px;margin:12px 0 18px;"></canvas>
-
-<h2>Free Awards Spotlight</h2>
-Top free awards by daily GPU usage as a percent of cluster capacity (with 7-day rolling average).
-<canvas id="chart-free" height="400" style="width:100%;background:#fff;border-radius:8px;margin:12px 0 18px;"></canvas>
-
+<table>
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>PI</th>
+      <th>GPU hours</th>
+      <th>Marlowe days</th>
+      <th>Awards</th>
+      <th>Activity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Dan Yamins</td>
+      <td>465,791.00</td>
+      <td>78.26</td>
+      <td>6,228,090.00</td>
+      <td>7</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 100.0%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level2" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level3" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level1" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level1" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Tengyu Ma</td>
+      <td>132,958.00</td>
+      <td>22.34</td>
+      <td>1,367,664.00</td>
+      <td>3</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 62.7%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level3" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level1" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level0" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level3" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Andreas Tolias</td>
+      <td>114,727.00</td>
+      <td>19.28</td>
+      <td>2,053,187.00</td>
+      <td>6</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 59.7%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level3" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level1" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level1" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level3" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Ruijiang Li</td>
+      <td>99,473.00</td>
+      <td>16.71</td>
+      <td>1,223,807.00</td>
+      <td>5</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 57.0%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level0" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level1" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level1" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level3" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Gordon Wetzstein</td>
+      <td>89,511.00</td>
+      <td>15.04</td>
+      <td>1,052,482.00</td>
+      <td>5</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 55.1%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level1" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level1" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level1" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level3" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Stefano Ermon</td>
+      <td>82,144.00</td>
+      <td>13.80</td>
+      <td>1,349,555.00</td>
+      <td>5</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 53.6%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level3" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level1" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level1" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level1" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Wing Wong</td>
+      <td>59,322.00</td>
+      <td>9.97</td>
+      <td>761,618.00</td>
+      <td>3</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 48.5%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level3" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level3" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level1" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level0" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Thierry Tambe</td>
+      <td>56,539.00</td>
+      <td>9.50</td>
+      <td>391,104.00</td>
+      <td>6</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 47.9%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level0" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level1" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level1" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level3" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Gianluca Iaccarino</td>
+      <td>55,061.00</td>
+      <td>9.25</td>
+      <td>109,372.00</td>
+      <td>1</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 47.5%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level0" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level3" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level1" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level0" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Curt Langlotz</td>
+      <td>54,424.00</td>
+      <td>9.14</td>
+      <td>647,228.00</td>
+      <td>5</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 47.3%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level0" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level1" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level1" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level3" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Iro Armeni</td>
+      <td>52,387.00</td>
+      <td>8.80</td>
+      <td>306,601.00</td>
+      <td>4</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 46.8%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level0" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level1" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level1" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level3" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Jure Leskovic</td>
+      <td>38,155.00</td>
+      <td>6.41</td>
+      <td>360,149.00</td>
+      <td>3</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 42.9%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level0" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level1" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level1" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level3" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Anshul Kundaje</td>
+      <td>37,220.00</td>
+      <td>6.25</td>
+      <td>502,634.00</td>
+      <td>6</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 42.6%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level0" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level1" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level1" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level3" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Kay Giesecke</td>
+      <td>36,772.00</td>
+      <td>6.18</td>
+      <td>331,000.00</td>
+      <td>5</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 42.5%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level0" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level3" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level3" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level1" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Stephen Baccus</td>
+      <td>33,361.00</td>
+      <td>5.61</td>
+      <td>538,542.00</td>
+      <td>2</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 41.4%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level0" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level0" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level3" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level3" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Shuran Song</td>
+      <td>32,490.00</td>
+      <td>5.46</td>
+      <td>446,130.00</td>
+      <td>2</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 41.1%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level0" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level3" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level1" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level0" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>Roger Kornberg</td>
+      <td>31,745.00</td>
+      <td>5.33</td>
+      <td>445,294.00</td>
+      <td>1</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 40.9%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level0" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level3" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level2" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level0" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>Jeffrey Glenn</td>
+      <td>30,767.00</td>
+      <td>5.17</td>
+      <td>423,709.00</td>
+      <td>4</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 40.6%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level0" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level0" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level0" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level3" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>Leonidas Guibas</td>
+      <td>28,898.00</td>
+      <td>4.86</td>
+      <td>170,159.00</td>
+      <td>1</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 39.9%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level0" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level1" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level1" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level3" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Azalia Mirhoseini</td>
+      <td>28,648.00</td>
+      <td>4.81</td>
+      <td>387,212.00</td>
+      <td>3</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 39.8%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level0" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level1" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level1" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level3" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>Emmanuel Candes</td>
+      <td>25,953.00</td>
+      <td>4.36</td>
+      <td>675,461.00</td>
+      <td>3</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 38.9%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level3" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level1" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level1" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level1" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>Hunter Fraser</td>
+      <td>25,064.00</td>
+      <td>4.21</td>
+      <td>77,884.00</td>
+      <td>2</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 38.6%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level0" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level2" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level3" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level1" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>Dorsa Sadigh</td>
+      <td>22,289.00</td>
+      <td>3.74</td>
+      <td>284,114.00</td>
+      <td>1</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 37.5%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level0" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level3" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level2" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level0" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>Olivier Gevaert</td>
+      <td>20,874.00</td>
+      <td>3.51</td>
+      <td>135,765.00</td>
+      <td>2</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 36.9%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level0" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level1" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level3" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level3" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>James Zou</td>
+      <td>19,399.00</td>
+      <td>3.26</td>
+      <td>189,911.00</td>
+      <td>1</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 36.3%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level0" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level3" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level0" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level3" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Xiaojie Qiu</td>
+      <td>17,700.00</td>
+      <td>2.97</td>
+      <td>20,113.00</td>
+      <td>2</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 35.6%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level0" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level1" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level0" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level3" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>Diyi Yang</td>
+      <td>16,550.00</td>
+      <td>2.78</td>
+      <td>143,937.00</td>
+      <td>1</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 35.1%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level0" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level3" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level0" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level0" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>Guolan Lu</td>
+      <td>14,477.00</td>
+      <td>2.43</td>
+      <td>191,002.00</td>
+      <td>4</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 34.1%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level0" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level0" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level1" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level3" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>Somil Bansal</td>
+      <td>12,876.00</td>
+      <td>2.16</td>
+      <td>77,061.00</td>
+      <td>4</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 33.3%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level0" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level0" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level1" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level3" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>Amin Saberi</td>
+      <td>12,596.00</td>
+      <td>2.12</td>
+      <td>119,129.00</td>
+      <td>3</td>
+      <td><div class="pi-activity"><div class="pi-activity-total"><div class="pi-activity-total-bar" style="width: 33.2%;"></div></div><div class="pi-activity-strip" aria-label="Cycle activity timeline"><span class="pi-activity-segment pi-activity-segment-pre pi-activity-level0" style="flex-grow: 0;"></span><span class="pi-activity-segment pi-activity-segment-c1 pi-activity-level0" style="flex-grow: 0.225806;"></span><span class="pi-activity-segment pi-activity-segment-c2 pi-activity-level2" style="flex-grow: 0.229734;"></span><span class="pi-activity-segment pi-activity-segment-c3 pi-activity-level3" style="flex-grow: 0.096213;"></span><span class="pi-activity-segment pi-activity-segment-c4 pi-activity-level3" style="flex-grow: 0.448247;"></span></div></div></td>
+    </tr>
+  </tbody>
+</table>
   <details class="sreport-provenance" style="margin-top:24px;">
   <summary>Data Provenance</summary>
   <div class="sreport-provenance-content">

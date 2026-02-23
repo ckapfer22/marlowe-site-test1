@@ -1,43 +1,38 @@
 ---
-layout: default
-title: Documentation
+layout: docs
+doc_title: Marlowe Documentation
+permalink: /documentation/
 ---
 
-<div class="container">
-  <div class="stub-hero">
-    <h1>Documentation</h1>
-    <p>Technical documentation for Marlowe — from getting started to advanced multi-node training. Currently hosted at the Stanford Research Computing site.</p>
-    <a href="https://docs.marlowe.stanford.edu/" class="btn btn-primary">View Full Documentation</a>
-  </div>
+<p>Welcome to the Marlowe technical documentation. Marlowe is a High Performance Computing (HPC) cluster managed by Stanford Research Computing, composed of an NVIDIA DGX H100 SuperPOD, 2.5PB of DDN ExaScaler Lustre storage, and 3PB of DDN IntelliFlash storage.</p>
 
-  <div class="stub-cards">
-    <div class="stub-card">
-      <h3>Getting Started</h3>
-      <p>Account setup, SSH access, module system, and submitting your first job on Marlowe.</p>
-    </div>
-    <div class="stub-card">
-      <h3>Multi-Node Training</h3>
-      <p>Distributed training with PyTorch DDP, FSDP, and DeepSpeed across Marlowe's InfiniBand fabric.</p>
-    </div>
-    <div class="stub-card">
-      <h3>Storage &amp; Data</h3>
-      <p>Parallel filesystem layout, data transfer, scratch vs. persistent storage, and best practices.</p>
-    </div>
-    <div class="stub-card">
-      <h3>Slurm &amp; Scheduling</h3>
-      <p>Job submission, partitions, allocation policies, and queue management on Marlowe.</p>
-    </div>
-    <div class="stub-card">
-      <h3>Software Stack</h3>
-      <p>CUDA, cuDNN, NCCL, Python environments, containers, and the module system.</p>
-    </div>
-    <div class="stub-card">
-      <h3>FAQ &amp; Troubleshooting</h3>
-      <p>Common issues, error messages, and solutions from the Marlowe support team.</p>
-    </div>
-  </div>
+<p>With 11.1 PFlops of compute power, Marlowe would place 87th in the May 2024 TOP500 rankings.</p>
 
-  <div class="callout" style="margin-top: 2rem;">
-    <p><strong>Future plan:</strong> This documentation will be hosted directly on this site. For now, the full docs are available at <a href="https://docs.marlowe.stanford.edu/">docs.marlowe.stanford.edu</a>.</p>
-  </div>
+<p>For in-depth tech specs, see the <a href="{{ '/documentation/specs/' | relative_url }}">Tech Specs page</a>.</p>
+
+<div class="docs-index-grid">
+  <a href="{{ '/documentation/getting-started/' | relative_url }}" class="docs-index-card">
+    <h3>Getting Started</h3>
+    <p>Apply for access, connect via SSH, understand filesystems, and transfer data with Globus.</p>
+  </a>
+  <a href="{{ '/documentation/slurm/' | relative_url }}" class="docs-index-card">
+    <h3>SLURM &amp; Open OnDemand</h3>
+    <p>Job submission, partitions, allocation policies, and the Open OnDemand web interface.</p>
+  </a>
+  <a href="{{ '/documentation/software/' | relative_url }}" class="docs-index-card">
+    <h3>Software</h3>
+    <p>Modules, Apptainer containers, Conda, CUDA toolkit, cuDNN, and more.</p>
+  </a>
+  <a href="{{ '/documentation/ngc-nims/' | relative_url }}" class="docs-index-card">
+    <h3>NGC NIMs</h3>
+    <p>Using NVIDIA NIM containers on Marlowe, with Llama and Evo examples.</p>
+  </a>
+  <a href="{{ '/documentation/faq/' | relative_url }}" class="docs-index-card">
+    <h3>FAQ</h3>
+    <p>Common questions about login issues, quotas, Docker, CUDA tools, and more.</p>
+  </a>
+  <a href="{{ '/documentation/help-and-support/' | relative_url }}" class="docs-index-card">
+    <h3>Help &amp; Support</h3>
+    <p>Contact Stanford Research Computing for support, consultations, and community channels.</p>
+  </a>
 </div>

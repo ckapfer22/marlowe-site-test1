@@ -1,0 +1,33 @@
+<nav class="docs-sidebar" aria-label="Documentation navigation">
+  <div class="docs-sidebar-header">
+    <a href="{{ '/documentation/' | relative_url }}">Documentation</a>
+  </div>
+  <ul class="docs-nav-list">
+    {% for section in site.data.docs-nav %}
+      {% if section.items %}
+        <li class="docs-nav-section">
+          <span class="docs-nav-section-title">{{ section.title }}</span>
+          <ul>
+            {% for item in section.items %}
+              <li>
+                <a href="{{ item.url | relative_url }}"
+                   {% if page.url == item.url %}class="active"{% endif %}>
+                  {{ item.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% else %}
+        {% unless section.title == "Home" %}
+        <li>
+          <a href="{{ section.url | relative_url }}"
+             {% if page.url == section.url %}class="active"{% endif %}>
+            {{ section.title }}
+          </a>
+        </li>
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+  </ul>
+</nav>
