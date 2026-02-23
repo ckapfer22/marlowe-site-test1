@@ -58,19 +58,32 @@ title: About Marlowe
         <div id="marlowe-video"></div>
       </div>
     </div>
+    <div style="margin-top: 3rem;">
+      <div class="section-header">
+        <h2>Stanford Data Science Presentation</h2>
+      </div>
+      <div class="video-embed">
+        <div id="sds-video"></div>
+      </div>
+    </div>
+
     <script>
     var tag = document.createElement('script');
     tag.src = 'https://www.youtube.com/iframe_api';
     document.head.appendChild(tag);
     function onYouTubeIframeAPIReady() {
-      var player = new YT.Player('marlowe-video', {
+      new YT.Player('marlowe-video', {
         videoId: '7bIJT7t0SS0',
         playerVars: { mute: 1, rel: 0 },
         events: {
-          onReady: function(e) {
-            e.target.mute();
-            setInterval(function() { player.mute(); }, 5);
-          }
+          onReady: function(e) { e.target.mute(); }
+        }
+      });
+      new YT.Player('sds-video', {
+        videoId: 'arFtUVA-xhI',
+        playerVars: { mute: 1, rel: 0, start: 856 },
+        events: {
+          onReady: function(e) { e.target.mute(); }
         }
       });
     }
